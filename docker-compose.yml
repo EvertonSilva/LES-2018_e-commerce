@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:9.5
+    container_name: "codex_postgres"
+    networks:
+      - backend
+
+  rails_app:
+    image: everton/codexrails:dev
+    container_name: "codex_rails"
+    build: ./codex_rails
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - ./codex_rails:/codex_rails
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - backend
+
+networks:
+  backend:
