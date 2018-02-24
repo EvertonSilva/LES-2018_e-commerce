@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @book = books(:valid) # load data from test/fixtures/books.yml
+  end
+
+  test "valid book" do
+    assert @book.valid?, "#{@book.errors.first}"
+  end
+
 end
