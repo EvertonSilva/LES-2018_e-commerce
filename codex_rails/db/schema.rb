@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224200807) do
+ActiveRecord::Schema.define(version: 20180225023819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,19 @@ ActiveRecord::Schema.define(version: 20180224200807) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "editions", force: :cascade do |t|
+    t.date "publish_year"
+    t.integer "pages_number"
+    t.string "width"
+    t.string "height"
+    t.string "weight"
+    t.string "depth"
+    t.bigint "publisher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publisher_id"], name: "index_editions_on_publisher_id"
+  end
+
   create_table "price_groups", force: :cascade do |t|
     t.string "desc"
     t.integer "markup"
@@ -60,4 +73,5 @@ ActiveRecord::Schema.define(version: 20180224200807) do
 
   add_foreign_key "books", "authors"
   add_foreign_key "books", "price_groups"
+  add_foreign_key "editions", "publishers"
 end

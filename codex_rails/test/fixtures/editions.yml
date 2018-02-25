@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  publish_year: 2018-02-25
+  pages_number: 1
+  width: MyString
+  height: MyString
+  weight: MyString
+  depth: MyString
+  publisher: one
+
+two:
+  publish_year: 2018-02-25
+  pages_number: 1
+  width: MyString
+  height: MyString
+  weight: MyString
+  depth: MyString
+  publisher: two
