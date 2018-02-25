@@ -1,5 +1,6 @@
 class Edition < ApplicationRecord
-
+  validates_presence_of :publish_year, :pages_number, :width, :height, :weight, :depth
+  
   belongs_to :publisher
 
   def dimensions
