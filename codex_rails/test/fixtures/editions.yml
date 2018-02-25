@@ -11,9 +11,9 @@ test_edition:
 
 two:
   publish_year: 2018-02-25
-  pages_number: nil
-  width: ""
-  height: ""
-  weight: ""
-  depth: ""
+  pages_number: 1
+  width: MyString
+  height: MyString
+  weight: MyString
+  depth: MyString
   publisher: invalid

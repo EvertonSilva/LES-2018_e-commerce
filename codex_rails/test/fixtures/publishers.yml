@@ -4,4 +4,4 @@ valid:
   name: MyString
 
 invalid:
-  name: nil
+  name: 
