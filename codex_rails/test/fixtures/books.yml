@@ -6,6 +6,8 @@ valid:
   barcode: "1100223388995"
   synopsis: "Lorem ipsum dolor sit amet"
   author: valid_author
+  edition: test_edition
+  price_group: bronze
 
 invalid:
   title: ""

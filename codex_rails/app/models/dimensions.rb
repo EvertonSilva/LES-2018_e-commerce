@@ -1,4 +1,4 @@
-class Dimension
+class Dimensions
   attr_reader :width, :height, :weight, :depth
 
   def initialize(width, height, weight, depth)

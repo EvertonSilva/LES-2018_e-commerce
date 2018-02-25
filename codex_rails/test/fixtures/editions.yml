@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+test_edition:
   publish_year: 2018-02-25
   pages_number: 1
   width: MyString
