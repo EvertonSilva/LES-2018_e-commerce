@@ -11,3 +11,30 @@ valid:
 
 invalid:
   title: ""
+
+one:
+  title: "Livro 1"
+  isbn: "0000111122229"
+  barcode: "1100223388995"
+  synopsis: "Lorem ipsum dolor sit amet"
+  author: valid_author
+  edition: test_edition
+  price_group: gold
+
+two:
+  title: "Livro 2"
+  isbn: "0000111122229"
+  barcode: "1100223388995"
+  synopsis: "Lorem ipsum dolor sit amet"
+  author: valid_author
+  edition: test_edition
+  price_group: silver
+
+three:
+  title: "Livro 3"
+  isbn: "0000111122229"
+  barcode: "1100223388995"
+  synopsis: "Lorem ipsum dolor sit amet"
+  author: valid_author
+  edition: test_edition
+  price_group: bronze
