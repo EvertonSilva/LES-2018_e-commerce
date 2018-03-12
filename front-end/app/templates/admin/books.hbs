@@ -1,0 +1,25 @@
+<div class="book-list">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |book|}}
+        <tr>
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td>
+              <a href="#">Activate</a> |
+              <a href="#">Details</a>
+            </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <button type="button">New Book</button>
+</div>
+{{outlet}}
