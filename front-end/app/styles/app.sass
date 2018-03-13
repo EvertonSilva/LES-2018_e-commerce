@@ -1,11 +1,25 @@
+// colors
+// #da4167
+$primary: #083d77
 $bgColor: #fcfcfc
 $textColor: #333
+$btnText: #083d77
+
+%button
+  border: solid 1px #2e4057
+  color: $btnText
+  margin: 1em 0
+  padding: 10px
 
 // general rules
 html
   background-color: $bgColor
   color: $textColor
   font-family: sans-serif
+
+button,
+.btn
+  @extend %button
 
 .content
   margin: 0 auto
@@ -15,3 +29,13 @@ html
 .books
   display: flex
   justify-content: space-around
+
+.book-list
+  table
+    width: 80%
+    td
+      border: 1px solid #666
+      padding: 10px
+      &:first-child,
+      &:last-child
+        text-align: center
