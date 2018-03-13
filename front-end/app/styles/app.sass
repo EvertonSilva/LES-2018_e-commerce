@@ -6,14 +6,17 @@ $textColor: #333
 $btnText: #083d77
 
 %button
+  background-color: $bgColor
   border: solid 1px #2e4057
   color: $btnText
+  display: inline-block
   margin: 1em 0
   padding: 10px
 
 // general rules
 html
   background-color: $bgColor
+  box-sizing: border-box
   color: $textColor
   font-family: sans-serif
 
@@ -24,6 +27,22 @@ button,
 .content
   margin: 0 auto
   width: 90%
+
+a
+  text-decoration: none
+
+form
+  width: 70%
+  fieldset
+    margin: 1em 0
+    padding: 2em 1.5em
+  label
+    display: block
+    margin-top: 1em
+  input,
+  textarea,
+  select
+    width: 100%
 
 // home layout
 .books
@@ -39,3 +58,8 @@ button,
       &:first-child,
       &:last-child
         text-align: center
+
+// book insert form
+.sales-period,
+.sales-period-unit
+  width: 20%
