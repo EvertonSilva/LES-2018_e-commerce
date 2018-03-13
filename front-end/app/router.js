@@ -10,7 +10,7 @@ Router.map(function() {
   this.route('books');
 
   this.route('admin', function() {
-    this.route('books');
+    this.route('books', function() {});
   });
 });
 
