@@ -80,3 +80,43 @@ form
 .sales-period,
 .sales-period-unit
   width: 20%
+
+// customer profile
+.customer-profile
+  display: flex
+  justify-content: flex-start
+
+  @at-root #{&}__options
+    background-color: darken($bgColor, 30%)
+    color: #fff
+    flex-shrink: 1
+    // margin-right: 1em
+    min-height: 650px
+    padding: 1em 0
+    a
+      color: #fff
+      display: block
+      padding: 0.3em 0.6em
+
+  @at-root #{&}__content
+    background-color: darken($bgColor, 6%)
+    border: solid 1px darken($bgColor, 45%)
+    border-left: none
+    border-right: none
+    padding: 1em 2em
+    width: 100%
+    table
+      width: 100%
+      td
+        border: 1px solid #666
+        padding: 10px
+        &:first-child,
+        &:last-child
+          text-align: center
+
+  .customer-info
+    text-align: center
+  .customer-avatar
+    width: 45%
+  .option--is_active
+    background: #666
