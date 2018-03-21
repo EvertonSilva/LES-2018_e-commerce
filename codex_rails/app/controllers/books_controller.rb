@@ -11,9 +11,27 @@ class BooksController < ApplicationController
     @book.editions = edition_attr.map { |edt| Edition.new(edt) }
 
     if @book.save
-      resp = { data: { id: @book.id, type: "books" } }
+      resp = { id: @book.id, status: :ok }
     else
-      resp = { errors: @book.errors }
+      resp = { errors: @book.errors, status: :unprocessable_entity }
+    end
+
+    render json: resp.to_json
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    book_attr = book_params
+    edition_attr = book_attr.delete("editions")
+
+    unless edition_attr.nil? 
+      book_attr[:editions] = edition_attr.map { |edt| Edition.new(edt) }
+    end
+
+    if @book.update(book_attr)
+      resp = { status: :ok }
+    else
+      resp = { errors: @book.errors, status: :unprocessable_entity }
     end
 
     render json: resp.to_json
