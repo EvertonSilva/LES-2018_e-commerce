@@ -50,5 +50,4 @@ publishers_list = [
 Publisher.create(publishers_list)
 
 # create edition
-dim  = Dimensions.new(12, 17, 180, 8)
-Edition.create({ publish_year: Time.new(2000), pages_number: 200, dimensions: dim, publisher_id: 1 })
+Edition.create({ publish_year: Time.new(2005), page_numbers: 200, dimensions: Dimensions.new(12,15,120,8), publisher_id: 1 });

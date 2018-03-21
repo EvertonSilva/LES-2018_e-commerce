@@ -1,8 +1,9 @@
 class Edition < ApplicationRecord
-  validates_presence_of :publish_year, :pages_number, :width, :height, :weight, :depth
+  validates_presence_of :publish_year, :page_numbers, :width, :height, :weight, :depth
   validates_associated :publisher
 
   belongs_to :publisher
+  belongs_to :book
 
   def dimensions
     Dimensions.new(self.width, self.height, self.weight, self.depth)

@@ -6,7 +6,9 @@ class Book < ApplicationRecord
 
   # associations
   has_and_belongs_to_many :categories
+  has_many :editions
   belongs_to :author
-  belongs_to :edition
   belongs_to :price_group
+
+  # scopes
 end

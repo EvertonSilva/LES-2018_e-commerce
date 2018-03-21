@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225031143) do
+ActiveRecord::Schema.define(version: 20180321020650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20180225031143) do
     t.integer "author_id"
     t.integer "price_group_id"
     t.boolean "status"
-    t.integer "edition_id"
   end
 
   create_table "books_categories", id: false, force: :cascade do |t|
@@ -48,11 +47,12 @@ ActiveRecord::Schema.define(version: 20180225031143) do
 
   create_table "editions", force: :cascade do |t|
     t.date "publish_year"
-    t.integer "pages_number"
+    t.integer "page_numbers"
     t.string "width"
     t.string "height"
     t.string "weight"
     t.string "depth"
+    t.integer "book_id"
     t.bigint "publisher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,5 +74,6 @@ ActiveRecord::Schema.define(version: 20180225031143) do
 
   add_foreign_key "books", "authors"
   add_foreign_key "books", "price_groups"
+  add_foreign_key "editions", "books"
   add_foreign_key "editions", "publishers"
 end
