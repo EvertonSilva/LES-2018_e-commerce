@@ -5,18 +5,24 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
+    book_attr = book_params
+    edition_attr = book_attr.delete("editions")
+    @book = Book.new(book_attr)
+    @book.editions = edition_attr.map { |edt| Edition.new(edt) }
+
     if @book.save
-      response = { data: { id: @book.id, type: @book.class.name.downcase.pluralize } }
+      resp = { data: { id: @book.id, type: "books" } }
     else
-      response = { errors: @book.errors }
+      resp = { errors: @book.errors }
     end
 
-    render json: response.to_json
+    render json: resp.to_json
   end
 
   private
     def book_params
-      params.require(:book).permit(:title, :isbn, :barcode, :status, :synopsis, :author_id, :price_group_id, :edition_id)
+      params.require(:book).permit(:title, :isbn, :barcode, :status, :synopsis,
+                                   :author_id, :price_group_id,
+                                   :editions => [:publish_year, :page_numbers, :width, :height, :weight, :depth, :publisher_id])
     end
 end

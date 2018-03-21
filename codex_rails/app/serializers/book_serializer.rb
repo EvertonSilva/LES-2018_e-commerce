@@ -3,4 +3,5 @@ class BookSerializer < ActiveModel::Serializer
   belongs_to :author
   belongs_to :price_group
   has_many :categories
+  has_many :editions
 end
