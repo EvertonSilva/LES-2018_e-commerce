@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reason: MyText
+  book: one
+  changes_category: one
+
+two:
+  reason: MyText
+  book: two
+  changes_category: two
