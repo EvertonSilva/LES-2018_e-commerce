@@ -1,0 +1,2 @@
+class ChangesCategory < ApplicationRecord
+end

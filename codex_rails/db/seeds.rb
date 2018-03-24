@@ -51,3 +51,16 @@ Publisher.create(publishers_list)
 
 # create edition
 Edition.create({ publish_year: Time.new(2005), page_numbers: 200, dimensions: Dimensions.new(12,15,120,8), publisher_id: 1 });
+
+# create change categories
+activate_categories = [
+  { name: "iniciar vendas", change_type: 1 },
+  { name: "retomar vendas", change_type: 1 },
+]
+ChangesCategory.create(activate_categories)
+
+inactivate_categories = [
+  { name: "fora de mercado", change_type: 0 },
+  { name: "suspender vendas", change_type: 0 },
+]
+ChangesCategory.create(inactivate_categories)
