@@ -49,9 +49,6 @@ publishers_list = [
 ]
 Publisher.create(publishers_list)
 
-# create edition
-Edition.create({ publish_year: Time.new(2005), page_numbers: 200, dimensions: Dimensions.new(12,15,120,8), publisher_id: 1 });
-
 # create change categories
 activate_categories = [
   { name: "iniciar vendas", change_type: 1 },
