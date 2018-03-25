@@ -2,16 +2,17 @@
 
 test_edition:
   publish_year: 2018-02-25
-  pages_number: 1
+  page_numbers: 100
   width: MyString
   height: MyString
   weight: MyString
   depth: MyString
   publisher: valid
+  book: book_0
 
 two:
   publish_year: 2018-02-25
-  pages_number: 1
+  page_numbers: 100
   width: MyString
   height: MyString
   weight: MyString

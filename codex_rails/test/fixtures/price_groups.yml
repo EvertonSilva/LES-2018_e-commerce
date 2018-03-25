@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-bronze:
+one:
   desc: MyString
-  markup: 1o
+  markup: 5
 
 two:
   desc: MyString

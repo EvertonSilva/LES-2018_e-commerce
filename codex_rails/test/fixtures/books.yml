@@ -1,40 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-valid:
-  title: "The Demons"
-  isbn: "0000111122229"
-  barcode: "1100223388995"
+<% 6.times do |i| %>
+book_<%= i %>:
+  title: <%= "Title of book #{i}" %>
+  isbn: <%= "11112222333#{i}" %>
+  barcode: <%= "99990000888#{i}" %>
   synopsis: "Lorem ipsum dolor sit amet"
+  status: false
   author: valid_author
-  edition: test_edition
-  price_group: bronze
-
-invalid:
-  title: ""
-
-one:
-  title: "Livro 1"
-  isbn: "0000111122229"
-  barcode: "1100223388995"
-  synopsis: "Lorem ipsum dolor sit amet"
-  author: valid_author
-  edition: test_edition
-  price_group: gold
-
-two:
-  title: "Livro 2"
-  isbn: "0000111122229"
-  barcode: "1100223388995"
-  synopsis: "Lorem ipsum dolor sit amet"
-  author: valid_author
-  edition: test_edition
-  price_group: silver
-
-three:
-  title: "Livro 3"
-  isbn: "0000111122229"
-  barcode: "1100223388995"
-  synopsis: "Lorem ipsum dolor sit amet"
-  author: valid_author
-  edition: test_edition
-  price_group: bronze
+  price_group: one
+<% end %>
