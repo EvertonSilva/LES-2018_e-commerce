@@ -3,24 +3,22 @@ require 'test_helper'
 class BooksControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @books_list = [books(:one), books(:two), books(:three)]
-    @books_list.each { |book| book.save }
+    @content_type = 'application/json'
   end
 
   def teardown
-    @books_list.each { |book| book.destroy }
   end
 
   test "end point GET /books" do
-    get books_url, as: :json
+    get books_url
     assert_response :success
   end
 
-  test "return json with all books" do
-    get books_url, as: :json
+  test "Should get valid list of books" do
+    get books_url
     payload = JSON.parse(response.body)
-    puts payload.class
-    assert_equal 5, payload.count
+    assert_equal @content_type, response.content_type
+    assert_equal 6, payload['data'].count
   end
 
 end
