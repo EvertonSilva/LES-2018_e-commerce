@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-
+  before_create :set_status
   # validations
   validates_presence_of :title, :isbn, :barcode, :synopsis
   validates_associated :editions
@@ -12,4 +12,9 @@ class Book < ApplicationRecord
   belongs_to :price_group
 
   # scopes
+
+  private
+  def set_status
+    self.status = false
+  end
 end
