@@ -130,7 +130,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (~> 0.10.0)
+  active_model_serializers (~> 0.10.2)
   byebug
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
