@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  change_type: false
+  change_type: 1
 
 two:
   name: MyString
-  change_type: false
+  change_type: 0

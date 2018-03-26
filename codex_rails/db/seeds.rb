@@ -22,20 +22,20 @@ Author.create(authors_list)
 
 # create categories
 categories_list = [
-  { name: 'Computer Science', desc: 'lorem ipsum' },
-  { name: 'Fantasy & Fiction', desc: 'lorem ipsum'},
-  { name: 'Terror', desc: 'lorem ipsum'},
-  { name: 'Sci Fi', desc: 'lorem ipsum'}
+  { name: 'Computer Science', description: 'lorem ipsum' },
+  { name: 'Fantasy & Fiction', description: 'lorem ipsum'},
+  { name: 'Terror', description: 'lorem ipsum'},
+  { name: 'Sci Fi', description: 'lorem ipsum'}
 ]
 Category.create(categories_list)
 
 # create price price groups
 price_groups = [
-  { desc: "pg1", markup: 5 },
-  { desc: "pg2", markup: 10 },
-  { desc: "pg3", markup: 15 },
-  { desc: "pg4", markup: 25 },
-  { desc: "pg5", markup: 30 },
+  { description: "pg1", markup: 5 },
+  { description: "pg2", markup: 10 },
+  { description: "pg3", markup: 15 },
+  { description: "pg4", markup: 25 },
+  { description: "pg5", markup: 30 },
 ]
 PriceGroup.create(price_groups)
 

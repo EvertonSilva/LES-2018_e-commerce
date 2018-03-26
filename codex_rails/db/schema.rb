@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180324172910) do
     t.datetime "updated_at", null: false
     t.integer "author_id"
     t.integer "price_group_id"
-    t.boolean "status"
+    t.boolean "enabled"
   end
 
   create_table "books_categories", id: false, force: :cascade do |t|
@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 20180324172910) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "desc"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "changes_categories", force: :cascade do |t|
     t.string "name"
-    t.boolean "change_type"
+    t.integer "change_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,19 +55,20 @@ ActiveRecord::Schema.define(version: 20180324172910) do
   create_table "editions", force: :cascade do |t|
     t.date "publish_year"
     t.integer "page_numbers"
-    t.string "width"
-    t.string "height"
-    t.string "weight"
-    t.string "depth"
-    t.integer "book_id"
+    t.integer "width"
+    t.integer "height"
+    t.integer "weight"
+    t.integer "depth"
     t.bigint "publisher_id"
+    t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_editions_on_book_id"
     t.index ["publisher_id"], name: "index_editions_on_publisher_id"
   end
 
   create_table "price_groups", force: :cascade do |t|
-    t.string "desc"
+    t.string "description"
     t.integer "markup"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

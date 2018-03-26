@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  desc: MyString
+  description: MyString
 
 two:
   name: MyString
-  desc: MyString
+  description: MyString
