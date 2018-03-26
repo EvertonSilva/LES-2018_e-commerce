@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: [:update]
 
   def index
     @books = Book.all
@@ -16,7 +17,6 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id])
 
     unless @editions.nil? or @editions.empty?
       book_attr[:editions] = @editions.map { |e| Edition.new(e) }
@@ -33,5 +33,15 @@ class BooksController < ApplicationController
     def book_params
       @editions = params[:data][:relationships][:editions][:data]
       ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+    end
+
+    def set_user
+      begin
+        @book = Book.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        book = Book.new
+        book.errors.add(:id, "ID not found")
+        render_error(book, 404) and return
+      end
     end
 end
