@@ -10,7 +10,7 @@ class Book < ApplicationRecord
   has_many :status_changes
   belongs_to :author
   belongs_to :price_group
-
+  has_paper_trail   # enable audit support
   # scopes
 
   private

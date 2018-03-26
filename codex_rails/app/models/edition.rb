@@ -4,6 +4,7 @@ class Edition < ApplicationRecord
 
   belongs_to :publisher
   belongs_to :book
+  has_paper_trail   # enable audit support
 
   def dimensions
     Dimensions.new(self.width, self.height, self.weight, self.depth)
