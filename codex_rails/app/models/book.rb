@@ -15,6 +15,6 @@ class Book < ApplicationRecord
 
   private
   def set_status
-    self.status = false
+    self.enabled = false
   end
 end
