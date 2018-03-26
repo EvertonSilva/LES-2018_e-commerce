@@ -13,6 +13,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 # serialize ruby objects
 gem 'active_model_serializers', '~> 0.10.2'
+# audit trail
+gem 'paper_trail'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
