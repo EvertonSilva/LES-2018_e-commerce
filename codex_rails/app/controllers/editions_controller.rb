@@ -12,4 +12,8 @@ class EditionsController < ApplicationController
   def set_edition
     @edition = Edition.find params[:id]
   end
+
+  def edition_params
+    serializer_params(params)
+  end
 end

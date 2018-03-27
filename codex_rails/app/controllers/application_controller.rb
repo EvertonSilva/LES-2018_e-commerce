@@ -5,4 +5,8 @@ class ApplicationController < ActionController::API
     render json: resource, status: status, adapter: :json_api,
             serializer: ActiveModel::Serializer::ErrorSerializer
   end
+
+  def serializer_params(params)
+    ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+  end
 end
