@@ -22,16 +22,17 @@
         </div>
         <div>
             <label for="book-category">Category</label>
-            <select name="book-category" id="book-category" multiple>
-              {{!-- <option value="1">Computer Science</option>
-              <option value="2">Fantasy & Fiction</option>
-              <option value="3">Terror</option>
-              <option value="4">Sci Fi</option> --}}
+            <select name="book-category" id="book-category" multiple
+                    onchange = {{action "selectCategory"}}>
+              {{#each allCategories as |category|}}
+                <option value="{{category.id}}">{{category.name}}</option>
+              {{/each}}
             </select>
         </div>
         <div>
             <label for="book-publisher">Publisher</label>
-            <select name="book-publisher" id="book-publisher">
+            <select name="book-publisher" id="book-publisher"
+                    onchange = {{action "selectPublisher" value="target.value"}}>
               {{#each allPublishers as |publisher|}}
                 <option value="{{publisher.id}}">{{publisher.name}}</option>
               {{/each}}
