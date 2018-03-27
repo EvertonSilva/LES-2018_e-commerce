@@ -5,20 +5,15 @@
         <img src="http://placehold.it/250x250" alt="">
       </div>
       <h3 class="book__title">{{book.title}}</h3>
-      <p>Author: {{book.author}}</p>
+      <p>Author: </p>
       <div class="book-price">
         <span class="book-price__currency">R$</span>
-        <span class="book-price__amount">{{book.price}}</span>
+        <span class="book-price__amount"></span>
       </div>
       <div class="book__info">
-        <p>Pages: {{book.pages}}</p>
-        <p>Publisher: {{book.publisher}}</p>
+        <p>Pages: </p>
+        <p>Publisher: </p>
         <h4>Categories:</h4>
-        <ul>
-          {{#each book.categories as |category|}}
-            <li>{{category}}</li>
-          {{/each}}
-        </ul>
       </div>
       <div class="book__purchase-btn">
         <button type="button">Purchase</button>
