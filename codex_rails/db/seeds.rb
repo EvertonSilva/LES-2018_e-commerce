@@ -16,7 +16,7 @@ authors_list = [
   { name: 'Gosling, James'},
   { name: 'Dostoiévski, Fiodor'},
   { name: 'Palahniuk, Chuck'},
-  { name: 'Sarte, Jean P.' }
+  { name: 'Sartre, Jean-P.' }
 ]
 Author.create(authors_list)
 

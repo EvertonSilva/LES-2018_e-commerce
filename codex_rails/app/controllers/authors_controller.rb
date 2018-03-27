@@ -2,6 +2,7 @@ class AuthorsController < ApplicationController
   before_action :set_author, only: [:update, :show]
 
   def index
+    render json: Author.all
   end
 
   def show
