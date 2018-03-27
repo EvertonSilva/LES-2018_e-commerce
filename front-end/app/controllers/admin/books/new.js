@@ -7,14 +7,29 @@ export default Controller.extend({
     return this.get('store').findAll('author');
   }),
 
+  allCategories: computed(function getCategories() {
+    return this.get('store').findAll('category');
+  }),
+
+  allPublishers: computed(function getPublishers() {
+    return this.get('store').findAll('publisher');
+  }),
+
   findAuthor: function(id) {
     return this.get('store').findRecord('author', id);
+  },
+  findPublisher: function(id) {
+    return this.get('store').findRecord('publisher', id);
   },
 
   actions: {
     selectAuthor(value) {
       let book = this.get('model');
-      book.set('author', this.findAuthor(value));
-    }
+      book.set('author', this.findPublisher(value));
+    },
+    selectPublisher(value) {
+      let book = this.get('model');
+      book.set('publisher', this.findPublisher(value));
+    },
   }
 });

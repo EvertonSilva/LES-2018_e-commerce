@@ -1,6 +1,6 @@
 class PublishersController < ApplicationController
-  before_action :set_publiser, only: [:show]
-  
+  before_action :set_publisher, only: [:show]
+
   def index
     render json: Publisher.all
   end
