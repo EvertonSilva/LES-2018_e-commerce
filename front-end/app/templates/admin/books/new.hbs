@@ -52,7 +52,6 @@
         </div>
         <div>
             <label for="book-synopsis">Synopsis</label>
-            {{!-- <textarea name="book-synopsis" id="book-synopsis" cols="30" rows="10"></textarea> --}}
             {{textarea value=model.synopsis cols="30" rows="10"}}
         </div>
     </fieldset>
@@ -90,10 +89,11 @@
         <legend>Price Group</legend>
         <div>
             <label for="book-price-group">Group</label>
-            <select name="book-price-group" id="book-price-group">
-                <option value="1" selected>5%</option>
-                <option value="2">7.5%</option>
-                <option value="3">10%</option>
+            <select name="book-price-group" id="book-price-group"
+                    onchange = {{action "selectPriceGroup" value="target.value"}}>
+              {{#each allPriceGroups as |price_group|}}
+                <option value="{{price_group.id}}">{{price_group.markup}}%</option>
+              {{/each}}
             </select>
         </div>
     </fieldset>

@@ -17,6 +17,10 @@ export default Controller.extend({
     return this.get('store').findAll('publisher');
   }),
 
+  allPriceGroups: computed(function () {
+    return this.get('store').findAll('price_group');
+  }),
+
   findAuthor: function(id) {
     return this.get('store').findRecord('author', id);
   },
@@ -25,6 +29,9 @@ export default Controller.extend({
   },
   findCategory: function(id) {
     return this.get('store').peekRecord('category', id);
+  },
+  findPriceGroup: function(id) {
+    return this.get('store').peekRecord('price_group', id);
   },
   setCategories: function (list) {
     let self = this;
@@ -46,6 +53,10 @@ export default Controller.extend({
       let book = this.get('model');
       let categories = this.setCategories(categoriesIdList);
       book.set('categories', categories);
-    }
+    },
+    selectPriceGroup(value) {
+      let book = this.get('model');
+      book.set('price_group', this.findPriceGroup(value));
+    },
   }
 });

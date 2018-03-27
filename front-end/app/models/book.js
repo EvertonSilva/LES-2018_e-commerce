@@ -8,5 +8,6 @@ export default DS.Model.extend({
   synopsis: DS.attr('string'),
   author: DS.belongsTo('author'),
   editions: DS.hasMany('edition'),
-  categories: DS.hasMany('categories')
+  categories: DS.hasMany('categories'),
+  price_groups: DS.belongsTo('price_group')
 });
