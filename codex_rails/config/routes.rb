@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   get 'price_groups', to: 'price_groups#index'
   get 'price_groups/:id', to: 'price_groups#show'
 
-  resources :books do
-    resources :editions
-  end
+  resources :books
   resources :authors
 end

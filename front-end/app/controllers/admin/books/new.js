@@ -22,10 +22,10 @@ export default Controller.extend({
   }),
 
   findAuthor: function(id) {
-    return this.get('store').findRecord('author', id);
+    return this.get('store').peekRecord('author', id);
   },
   findPublisher: function(id) {
-    return this.get('store').findRecord('publisher', id);
+    return this.get('store').peekRecord('publisher', id);
   },
   findCategory: function(id) {
     return this.get('store').peekRecord('category', id);
@@ -42,7 +42,7 @@ export default Controller.extend({
   actions: {
     selectAuthor(value) {
       let book = this.get('model');
-      book.set('author', this.findPublisher(value));
+      book.set('author', this.findAuthor(value));
     },
     selectPublisher(value) {
       let book = this.get('model');
@@ -58,5 +58,14 @@ export default Controller.extend({
       let book = this.get('model');
       book.set('price_group', this.findPriceGroup(value));
     },
+    createBook() {
+      let book = this.get('model');
+      var self = this;
+      book.save().then(function () {
+        self.transitionTo('admin.index');
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
   }
 });

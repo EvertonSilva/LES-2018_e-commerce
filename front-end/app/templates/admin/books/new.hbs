@@ -40,15 +40,15 @@
         </div>
         <div>
             <label for="book-edition">Edition</label>
-            <input name="book-edition" id="book-edition" type="text">
+            {{input value=model.edition}}
         </div>
         <div>
             <label for="book-year">Publish Year</label>
-            <input name="book-year" id="book-year" type="number" min="1889" max="2017">
+            {{input value=model.publish_year}}
         </div>
         <div>
             <label for="book-pages-number">Page numbers</label>
-            <input name="book-pages-number" id="book-pages-number" type="number">
+            {{input value=model.page_numbers}}
         </div>
         <div>
             <label for="book-synopsis">Synopsis</label>
@@ -59,19 +59,19 @@
         <legend>Dimensions</legend>
         <div>
             <label for="book-height">Height</label>
-            <input name="book-height" id="book-height" type="number">
+            {{input value=model.height}}
         </div>
         <div>
             <label for="book-width">Width</label>
-            <input name="book-width" id="book-width" type="number">
+            {{input value=model.width}}
         </div>
         <div>
-            <label for="book-weight">Weigth</label>
-            <input name="book-weight" id="book-weight" type="number">
+            <label for="book-weight">Weight</label>
+            {{input value=model.weight}}
         </div>
         <div>
             <label for="book-depth">Depth</label>
-            <input name="book-depth" id="book-depth" type="number">
+            {{input value=model.depth}}
         </div>
     </fieldset>
     <fieldset>

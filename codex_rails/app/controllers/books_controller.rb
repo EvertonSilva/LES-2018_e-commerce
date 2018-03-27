@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-  before_action :set_editions, only: [:create]
   before_action :set_book, only: [:update, :show]
   before_action :check_status_change, only: [:update]
   after_action :save_status_change, only: [:update]
@@ -15,7 +14,6 @@ class BooksController < ApplicationController
 
   def create
     book = Book.new(book_params)
-    book.editions.build(@editions)
     if book.save
       render json: book
     else
@@ -44,11 +42,6 @@ class BooksController < ApplicationController
         book.errors.add(:id, "ID not found")
         render_error(book, 404) and return
       end
-    end
-
-    def set_editions
-      params.permit!
-      @editions = params[:data][:relationships][:editions][:data]
     end
 
     def check_status_change

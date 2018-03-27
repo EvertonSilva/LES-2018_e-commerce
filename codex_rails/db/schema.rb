@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 20180326053251) do
     t.string "isbn"
     t.string "barcode"
     t.text "synopsis"
+    t.integer "width"
+    t.integer "height"
+    t.integer "depth"
+    t.integer "weight"
+    t.integer "page_numbers"
+    t.string "edition"
+    t.string "publish_year"
+    t.integer "publisher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "author_id"
@@ -50,21 +58,6 @@ ActiveRecord::Schema.define(version: 20180326053251) do
     t.integer "change_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "editions", force: :cascade do |t|
-    t.date "publish_year"
-    t.integer "page_numbers"
-    t.integer "width"
-    t.integer "height"
-    t.integer "weight"
-    t.integer "depth"
-    t.bigint "publisher_id"
-    t.bigint "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_editions_on_book_id"
-    t.index ["publisher_id"], name: "index_editions_on_publisher_id"
   end
 
   create_table "price_groups", force: :cascade do |t|
@@ -102,8 +95,6 @@ ActiveRecord::Schema.define(version: 20180326053251) do
 
   add_foreign_key "books", "authors"
   add_foreign_key "books", "price_groups"
-  add_foreign_key "editions", "books"
-  add_foreign_key "editions", "publishers"
   add_foreign_key "status_changes", "books"
   add_foreign_key "status_changes", "changes_categories"
 end
