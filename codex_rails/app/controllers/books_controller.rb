@@ -1,11 +1,16 @@
 class BooksController < ApplicationController
   before_action :set_editions, only: [:create]
-  before_action :set_book, :check_status_change, only: [:update]
+  before_action :set_book, only: [:update, :show]
+  before_action :check_status_change, only: [:update]
   after_action :save_status_change, only: [:update]
 
   def index
     @books = Book.all
     render json:  @books
+  end
+
+  def show
+    render json: @book, include: [:author]
   end
 
   def create
