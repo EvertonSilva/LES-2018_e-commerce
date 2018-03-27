@@ -25,7 +25,7 @@
                 <a href="#">Enable</a> |
               {{/if}}
               <a href="#">Edit</a> |
-              <a href="#">Details</a>
+              {{#link-to 'admin.books.show' book}}Details{{/link-to}}
             </td>
         </tr>
       {{/each}}
