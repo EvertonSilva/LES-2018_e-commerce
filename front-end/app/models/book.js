@@ -6,5 +6,7 @@ export default DS.Model.extend({
   barcode: DS.attr('string'),
   enabled: DS.attr('boolean'),
   synopsis: DS.attr('string'),
-  author: DS.belongsTo('author')
+  author: DS.belongsTo('author'),
+  editions: DS.hasMany('edition'),
+  categories: DS.hasMany('categories')
 });
