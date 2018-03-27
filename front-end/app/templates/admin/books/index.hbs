@@ -19,7 +19,11 @@
             <td>{{book.id}}</td>
             <td>{{book.title}}</td>
             <td>
-              <a href="#">Activate</a> |
+              {{#if book.enable}}
+                <a href="#">Disable</a> |
+              {{else}}
+                <a href="#">Enable</a> |
+              {{/if}}
               <a href="#">Edit</a> |
               <a href="#">Details</a>
             </td>
