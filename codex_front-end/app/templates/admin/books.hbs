@@ -1,1 +1,12 @@
-{{outlet}}
+<div class="outer-container">
+  <div class="sidebar-col col">
+    <h1>Books</h1>
+    <ul>
+      <li>{{#link-to 'admin.books.index'}}List all{{/link-to}}</li>
+      <li>{{#link-to 'admin.books.new'}}Add new{{/link-to}}</li>
+    </ul>
+  </div>
+  <div class="content-col col">
+    {{outlet}}
+  </div>
+</div>
