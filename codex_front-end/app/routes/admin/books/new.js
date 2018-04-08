@@ -28,6 +28,6 @@ export default Route.extend({
     },
     willTransition() {
       this.controller.get('model.book').rollbackAttributes();
-    }
+    },
   },
 });

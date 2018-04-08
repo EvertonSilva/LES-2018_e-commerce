@@ -8,7 +8,7 @@
     </div>
     <div class="">
       <label for="authors">Author</label>
-      <select class="" id="authors" {{action 'selectAuthor' on='change' value='target.value'}}>
+      <select class="" id="authors" onchange={{action 'selectEntity'}}>
         <option value="">select...</option>
         {{#each authors as |author|}}
           <option value="{{author.id}}">{{author.name}}</option>
@@ -17,7 +17,7 @@
     </div>
     <div class="">
       <label for="publishers">Publisher</label>
-      <select class="" id="publishers">
+      <select class="" id="publishers" onchange={{action 'selectEntity'}}>
         <option value="">select...</option>
         {{#each publishers as |publisher|}}
           <option value="{{publisher.id}}">{{publisher.name}}</option>
@@ -66,7 +66,7 @@
   <fieldset>
     <legend>Markup</legend>
     <label for="price-group">Price group</label>
-    <select class="" id="price-group">
+    <select class="" id="priceGroups" onchange={{action 'selectEntity'}}>
       <option value="">select...</option>
       {{#each priceGroups as |pg|}}
         <option value="{{pg.id}}">{{pg.description}} | {{pg.markup}}%</option>
