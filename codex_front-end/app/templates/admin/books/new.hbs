@@ -8,7 +8,7 @@
     </div>
     <div class="">
       <label for="authors">Author</label>
-      <select class="" id="authors">
+      <select class="" id="authors" {{action 'selectAuthor' on='change' value='target.value'}}>
         <option value="">select...</option>
         {{#each authors as |author|}}
           <option value="{{author.id}}">{{author.name}}</option>

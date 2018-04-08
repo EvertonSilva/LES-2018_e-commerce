@@ -18,6 +18,8 @@ export default Route.extend({
     controller.set('authors', model.authors);
     controller.set('publishers', model.publishers);
     controller.set('priceGroups', model.priceGroups);
+
+    this._super(controller, model);
   },
 
   actions: {
@@ -26,6 +28,6 @@ export default Route.extend({
     },
     willTransition() {
       this.controller.get('model.book').rollbackAttributes();
-    },
+    }
   },
 });

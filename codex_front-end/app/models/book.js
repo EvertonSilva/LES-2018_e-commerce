@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+  enabled: DS.attr('boolean'),
   title: DS.attr('string'),
   isbn: DS.attr('string'),
   barcode: DS.attr('string'),
