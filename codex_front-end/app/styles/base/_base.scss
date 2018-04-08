@@ -1,4 +1,6 @@
 @import "layout";
+// variables
+$base-spacing: 1.5em;
 
 // simple css reset
 html * {
@@ -8,4 +10,12 @@ html * {
   line-height: 1.5;
   margin: 0;
   padding: 0;
+}
+
+fieldset {
+  padding: $base-spacing $base-spacing/2;
+}
+label {
+  display: block;
+  font-weight: bold;
 }

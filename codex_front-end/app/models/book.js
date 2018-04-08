@@ -5,6 +5,7 @@ export default DS.Model.extend({
   isbn: DS.attr('string'),
   barcode: DS.attr('string'),
   synopsis: DS.attr('string'),
+  pageNumbers: DS.attr('number'),
   edtion: DS.attr('string'),
   width: DS.attr('number'),
   height: DS.attr('number'),
