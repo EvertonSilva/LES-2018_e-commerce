@@ -38,7 +38,7 @@
     </div>
     <div class="">
       <label for="categories">Categories</label>
-      <select class="" id="categories" multiple>
+      <select class="" id="categories" multiple onchange={{action 'selectCategories'}}>
         {{#each categories as |category|}}
           <option value="{{category.id}}">{{category.name}}</option>
         {{/each}}
@@ -75,3 +75,8 @@
   </fieldset>
   <button type="button" {{action 'saveBook' book}}>Save</button>
 </form>
+<div class="errors">
+  {{#each book.errors as |error|}}
+    <li>{{error.source}} - {{error.message}}</li>
+  {{/each}}
+</div>
