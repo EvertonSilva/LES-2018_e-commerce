@@ -11,7 +11,7 @@
       <td>{{book.title}}</td>
       <td>
         <a href="#">Details</a> |
-        <a href="#">Edit</a> |
+        {{#link-to "admin.books.edit" book}}Edit{{/link-to}} |
         <label>
           {{input type="checkbox" checked=book.enabled}}
           Enable

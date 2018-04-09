@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('admin', function() {
     this.route('books', function () {
       this.route('new');
+      this.route('edit', { path: '/:book_id/edit' });
     });
   });
 });
