@@ -1,0 +1,23 @@
+.top-menu {
+  background-color: $white;
+  border-bottom: 1px solid #ccc;
+  padding: $base-spacing * 0.5;
+  position: relative;
+
+  a {
+    font-size: $base-font-size * 0.9;
+    margin-left: 4px;
+
+    &:hover {
+      border-bottom: 2px solid;
+    }
+  }
+}
+.top-menu__brand,
+.top-menu__nav {
+  display: inline-block;
+  width: 49%;
+}
+.top-menu__nav {
+  text-align: right;
+}
