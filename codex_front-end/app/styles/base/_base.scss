@@ -11,23 +11,3 @@ html * {
   margin: 0;
   padding: 0;
 }
-
-fieldset {
-  padding: $base-spacing $base-spacing/2;
-}
-label {
-  display: block;
-  font-weight: bold;
-}
-table {
-  text-align: center;
-  width: 100%;
-}
-td:nth-child(2) {
-  text-align: left;
-}
-td:last-of-type {
-  label {
-    display: inline;
-  }
-}
