@@ -46,6 +46,10 @@ body {
 .main-content {
   min-height: 720px;
 }
+.page-title {
+  font-size: $base-spacing*1.5;
+  padding: 1em 0;
+}
 .page-footer {
   background-color: $dark-gray;
   color: darken($white, 10%);
@@ -57,4 +61,21 @@ body {
 }
 .filter {
   margin-top: $base-spacing;
+}
+.cart-list {
+  margin: $base-spacing 0;
+  width: 100%;
+  text-align: center;
+  td {
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    padding: $base-spacing/2 0;
+  }
+  input {
+    width: 12%;
+  }
+}
+.checkout-action {
+  text-align: right;
+  padding-right: 1em;
 }
