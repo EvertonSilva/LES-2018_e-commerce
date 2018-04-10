@@ -28,6 +28,12 @@ a {
 body {
   background-color: $bgColor;
 }
+.btn {
+  background: #ddd;
+  border: 1px solid;
+  display: inline-block;
+  padding: 0.5%;
+}
 
 // header
 .input-search {
@@ -78,4 +84,38 @@ body {
 .checkout-action {
   text-align: right;
   padding-right: 1em;
+}
+.purchase-info-wrap,
+.purchase-resume {
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+}
+.purchase-info-wrap {
+  border-right: 1px solid;
+  margin-right: 1.5em;
+  padding-top: $base-spacing;
+}
+.purchase-info {
+  margin: 1em 0;
+}
+.purchase-resume {
+  width: 60%;
+  h2 {
+    @extend .page-title;
+  }
+  .purchase-item {
+    margin: $base-spacing*1.2 0;
+    h3,p { font-size: $base-font-size*1.2; }
+  }
+  .purchase-total {
+    position: relative;
+    top: 20%;
+
+    h3 { font-size: $base-font-size*1.5 }
+  }
+}
+.purchase-finish {
+  padding: 1em $base-spacing;
+  text-align: right;
 }

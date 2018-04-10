@@ -15,6 +15,7 @@ Router.map(function() {
   });
   this.route('books');
   this.route('cart');
+  this.route('checkout');
 });
 
 export default Router;
