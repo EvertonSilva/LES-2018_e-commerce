@@ -1,0 +1,22 @@
+<div class="container">
+  <header>
+    <img src="https://placehold.it/1296x400?text=Promo%20banner" alt="">
+  </header>
+  <div class="input-search">
+    <input type="search" name="search" placeholder="what do you looking for?">
+    <button type="button">Search!</button>
+  </div>
+  <section>
+    <h2>Featured books</h2>
+    {{#each model as |book|}}
+      <div class="book-item">
+        <div class="book-info">
+          <h3>{{book.title}}</h3>
+          <p>by {{book.author}}</p>
+        </div>
+        <a href="#">Add to cart</a>
+      </div>
+    {{/each}}
+  </section>
+</div>
+{{outlet}}

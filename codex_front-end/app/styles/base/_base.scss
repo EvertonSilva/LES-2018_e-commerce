@@ -6,6 +6,7 @@ $text-font-family: sans-serif;
 
 // colors
 $gray: #666;
+$dark-gray: #333;
 $white: #fff;
 $bgColor: #f1f1f1;
 
@@ -26,4 +27,27 @@ a {
 // general rules
 body {
   background-color: $bgColor;
+}
+
+// header
+.input-search {
+  input {
+    font-size: $base-font-size * 1.1;
+    margin: $base-spacing 0;
+    padding: $base-spacing * 0.2 0;
+    text-align: center;
+    width: 94%;
+  }
+  button {
+    padding: $base-spacing * 0.3 0;
+    vertical-align: middle;
+  }
+}
+
+.page-footer {
+  background-color: $dark-gray;
+  color: darken($white, 10%);
+  margin-top: $base-spacing;
+  padding: $base-spacing/2 0;
+  text-align: center;
 }

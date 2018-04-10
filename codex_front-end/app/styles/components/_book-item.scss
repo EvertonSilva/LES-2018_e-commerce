@@ -1,0 +1,14 @@
+.book-item {
+  display: inline-block;
+  margin-right: $base-spacing * 0.7;
+  margin-top: $base-spacing;
+  vertical-align: top;
+}
+.book-info {
+  background-color: #ddd;
+  border: 4px solid;
+  color: lighten($gray, 40%);
+  height: 250px;
+  padding: $base-spacing;
+  width: 200px;
+}
