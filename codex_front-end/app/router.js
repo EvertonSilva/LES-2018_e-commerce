@@ -13,6 +13,7 @@ Router.map(function() {
       this.route('edit', { path: '/:book_id/edit' });
     });
   });
+  this.route('books');
 });
 
 export default Router;

@@ -43,11 +43,18 @@ body {
     vertical-align: middle;
   }
 }
-
+.main-content {
+  min-height: 720px;
+}
 .page-footer {
   background-color: $dark-gray;
   color: darken($white, 10%);
-  margin-top: $base-spacing;
   padding: $base-spacing/2 0;
   text-align: center;
+}
+.filters {
+  padding: $base-spacing/2 $base-spacing;
+}
+.filter {
+  margin-top: $base-spacing;
 }

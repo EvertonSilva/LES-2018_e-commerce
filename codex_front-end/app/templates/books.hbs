@@ -1,0 +1,41 @@
+<div class="outter-container">
+  <div class="sidebar">
+    <section class="filters">
+      <h3>Filters</h3>
+      <div class="filter filters__categories">
+        <h4>Categories</h4>
+        <label><input type="checkbox" name="category"> Category 1</label><br>
+        <label><input type="checkbox" name="category"> Category 2</label><br>
+        <label><input type="checkbox" name="category"> Category 3</label><br>
+        <label><input type="checkbox" name="category"> Category 4</label><br>
+      </div>
+      <div class="filter filters__price-range">
+        <h4>Price range</h4>
+        <input type="text" name="min-price" placeholder="Min Price"><br><br>
+        <input type="text" name="max-price" placeholder="Max Price"><br>
+      </div>
+      <div class="filter filters__categories">
+        <h4>Authors</h4>
+        <label><input type="checkbox" name="author"> Author 1</label><br>
+        <label><input type="checkbox" name="author"> Author 2</label><br>
+        <label><input type="checkbox" name="author"> Author 3</label><br>
+        <label><input type="checkbox" name="author"> Author 4</label><br>
+      </div>
+    </section>
+  </div>
+  <div class="main-content">
+    <section class="">
+      <h2>Books</h2>
+      {{#each model as |book|}}
+        <div class="book-item">
+          <div class="book-info">
+            <h3>{{book.title}}</h3>
+            <p>by {{book.author}}</p>
+          </div>
+          <a href="#">Add to cart</a>
+        </div>
+      {{/each}}
+    </section>
+    {{outlet}}
+  </div>
+</div>
