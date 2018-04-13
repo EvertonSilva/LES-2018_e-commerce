@@ -1,4 +1,6 @@
 @import "layout";
+@import "button";
+
 // variables
 $base-spacing: 1.5em;
 $base-font-size: 16px;
@@ -28,12 +30,6 @@ a {
 body {
   background-color: $bgColor;
 }
-.btn {
-  background: #ddd;
-  border: 1px solid;
-  display: inline-block;
-  padding: 0.5%;
-}
 
 // header
 .input-search {
@@ -55,12 +51,6 @@ body {
 .page-title {
   font-size: $base-spacing*1.5;
   padding: 1em 0;
-}
-.page-footer {
-  background-color: $dark-gray;
-  color: darken($white, 10%);
-  padding: $base-spacing/2 0;
-  text-align: center;
 }
 .filters {
   padding: $base-spacing/2 $base-spacing;
