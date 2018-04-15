@@ -14,6 +14,9 @@ module.exports = function(environment) {
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
+      },
+      'ember-bulma': {
+        except: ['bulma-tag'] // excludes `bulma-tag`
       }
     },
 
