@@ -2,23 +2,24 @@ import { hash } from 'rsvp';
 import Route from '@ember/routing/route';
 
 export default Route.extend({
+  getCollection(modelName) {
+    return this.get('store').findAll(modelName);
+  },
+
   model(params) {
     return hash({
-      book: this.store.findRecord('book', params.book_id),
-      categories: this.store.findAll('category'),
-      authors: this.store.findAll('author'),
-      publishers: this.store.findAll('publisher'),
-      priceGroups: this.store.findAll('priceGroup')
+      book: this.get('store').findRecord('book', params.book_id),
+      collections: {
+        categories: this.getCollection('category'),
+        publishers: this.getCollection('publisher'),
+        authors: this.getCollection('author'),
+        priceGroups: this.getCollection('priceGroup')
+      },
     });
   },
 
   setupController(controller, model) {
-    controller.set('book', model.book);
-    controller.set('categories', model.categories);
-    controller.set('authors', model.authors);
-    controller.set('publishers', model.publishers);
-    controller.set('priceGroups', model.priceGroups);
-
+    controller.set('collections', model.collections);
     this._super(controller, model);
   },
 
@@ -27,11 +28,11 @@ export default Route.extend({
       book.save().then(() => this.transitionTo('admin.books'));
     },
     willTransition(transition) {
-      let model = this.controller.get('model').book;
-      if(model.get('hasDirtyAttributes')) {
+      let model = this.controller.get('model');
+      if(model.book.get('hasDirtyAttributes')) {
         let confirmation = confirm('Your changes will be lost, are you sure?');
         if(confirmation) {
-          model.rollbackAttributes();
+          model.book.rollbackAttributes();
         } else {
           transition.abort();
         }

@@ -9,12 +9,18 @@
       <label for="authors">Author</label>
       <select class="" id="authors"> {{!-- onchange={{action 'selectEntity'}} --}}
         <option value="">select...</option>
+        {{#each bookCollections.authors as |author|}}
+          <option value="{{author.id}}">{{author.name}}</option>
+        {{/each}}
       </select>
     </div>
     <div class="form-control">
       <label for="publishers">Publisher</label>
       <select class="" id="publishers">
-        <option value="">select publishers...</option>
+        <option value="">select...</option>
+        {{#each bookCollections.publishers as |publisher|}}
+          <option value="{{publisher.id}}">{{publisher.name}}</option>
+        {{/each}}
       </select>
     </div>
     <div class="form-control">
@@ -33,6 +39,9 @@
       <label for="categories">Categories</label>
       <select class="" id="categories" multiple> {{!-- onchange={{action 'selectCategories'}} --}}
         <option value="">Select categories...</option>
+        {{#each bookCollections.categories as |category|}}
+          <option value="{{category.id}}">{{category.name}}</option>
+        {{/each}}
       </select>
     </div>
   </fieldset>
@@ -60,6 +69,9 @@
       <label for="price-group">Price group</label>
       <select class="" id="priceGroups">
         <option value="">select...</option>
+        {{#each bookCollections.priceGroups as |pg|}}
+          <option value="{{pg.id}}">{{pg.description}} - {{pg.markup}}%</option>
+        {{/each}}
       </select>
     </div>
   </fieldset>

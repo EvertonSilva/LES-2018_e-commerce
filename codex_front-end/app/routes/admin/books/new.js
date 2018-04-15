@@ -2,23 +2,24 @@ import { hash } from 'rsvp';
 import Route from '@ember/routing/route';
 
 export default Route.extend({
+  getCollection(modelName) {
+    return this.get('store').findAll(modelName);
+  },
+
   model() {
     return hash({
-      book: this.store.createRecord('book'),
-      categories: this.store.findAll('category'),
-      authors: this.store.findAll('author'),
-      publishers: this.store.findAll('publisher'),
-      priceGroups: this.store.findAll('priceGroup')
+      book: this.get('store').createRecord('book'),
+      collections: {
+        categories: this.getCollection('category'),
+        publishers: this.getCollection('publisher'),
+        authors: this.getCollection('author'),
+        priceGroups: this.getCollection('priceGroup')
+      },
     });
   },
 
   setupController(controller, model) {
-    controller.set('book', model.book);
-    controller.set('categories', model.categories);
-    controller.set('authors', model.authors);
-    controller.set('publishers', model.publishers);
-    controller.set('priceGroups', model.priceGroups);
-
+    controller.set('collections', model.collections);
     this._super(controller, model);
   },
 
