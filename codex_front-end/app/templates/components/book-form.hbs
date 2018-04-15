@@ -35,10 +35,9 @@
       <label for="synopsis">Synopsis</label>
       {{textarea value=book.synopsis}}
     </div>
-    <div class="">
+    <div class="form-control">
       <label for="categories">Categories</label>
       <select class="" id="categories" multiple> {{!-- onchange={{action 'selectCategories'}} --}}
-        <option value="">Select categories...</option>
         {{#each bookCollections.categories as |category|}}
           <option value="{{category.id}}">{{category.name}}</option>
         {{/each}}
