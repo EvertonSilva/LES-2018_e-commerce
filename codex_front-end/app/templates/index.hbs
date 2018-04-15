@@ -1,22 +1,40 @@
-<div class="container">
-  <header>
-    <img src="https://placehold.it/1296x400?text=_" alt="">
-  </header>
-  <div class="input-search">
-    <input type="search" name="search" placeholder="what do you looking for?">
-    <button type="button">Search!</button>
-  </div>
-  <section>
-    <h2>Featured books</h2>
-    {{#each model as |book|}}
-      <div class="book-item">
-        <div class="book-info">
-          <h3>{{book.title}}</h3>
-          <p>by {{book.author}}</p>
+{{#bulma-hero isPrimary=true isLarge=true}}
+  {{#bulma-hero-content}}
+    <h1 class="title">Hero Title</h1>
+    <h2 class="subtitle">Lorem ipsum dolor sit amet</h2>
+  {{/bulma-hero-content}}
+{{/bulma-hero}}
+
+{{#bulma-section}}
+  {{#bulma-container}}
+    <h2 class="title">Featured books</h2>
+    <div class="columns">
+      {{#each model as |book|}}
+        <div class="column">
+          <div class="card">
+            <header class="card-header">
+              <h3 class="card-header-title">{{book.title}}</h3>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <p>
+                  Author: {{book.author.name}}
+                </p>
+                <ul>
+                  {{#each book.categories as |category|}}
+                    <li>{{category.name}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <p class="card-footer-item">R$ 0,00</p>
+              <a href="#" class="card-footer-item">Add to cart</a>
+            </footer>
+          </div>
         </div>
-        <a href="#">Add to cart</a>
-      </div>
-    {{/each}}
-  </section>
-</div>
+      {{/each}}
+    </div>
+  {{/bulma-container}}
+{{/bulma-section}}
 {{outlet}}

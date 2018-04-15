@@ -1,6 +1,28 @@
-<nav class="top-menu__nav">
-  <a href="#">Home</a>
-  {{#link-to 'books'}}Books{{/link-to}}
-  <a href="#">Login</a>
-  <a href="/cart">Cart</a>
-</nav>
+{{#bulma-nav hasShadow=true}}
+  {{#bulma-container isFluid=true}}
+    {{#bulma-nav-left}}
+      <h1>
+        {{#link-to 'index' class='nav-item'}}Codex Bookstore{{/link-to}}
+      </h1>
+    {{/bulma-nav-left}}
+
+    {{#bulma-nav-right isMenu=true}}
+      {{#link-to 'index' class='nav-item'}}
+        <i class="fa fa-home" aria-hidden="true"></i>
+        &nbsp;Home
+      {{/link-to}}
+      {{#link-to 'books' class='nav-item'}}
+        <i class="fa fa-book" aria-hidden="true"></i>
+        &nbsp;Books
+      {{/link-to}}
+      {{#link-to 'cart' class='nav-item'}}
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        &nbsp;Cart
+      {{/link-to}}
+      <a href="#" class="nav-item">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        &nbsp;Login
+      </a>
+    {{/bulma-nav-right}}
+  {{/bulma-container}}
+{{/bulma-nav}}
