@@ -1,0 +1,67 @@
+<form class="" action="#">
+  <fieldset>
+    <legend>Basic</legend>
+    <div class="form-control">
+      <label for="title">Title</label>
+      {{input type="text" value=book.title id="title"}}
+    </div>
+    <div class="form-control">
+      <label for="authors">Author</label>
+      <select class="" id="authors"> {{!-- onchange={{action 'selectEntity'}} --}}
+        <option value="">select...</option>
+      </select>
+    </div>
+    <div class="form-control">
+      <label for="publishers">Publisher</label>
+      <select class="" id="publishers">
+        <option value="">select publishers...</option>
+      </select>
+    </div>
+    <div class="form-control">
+      <label for="page-numbers">Page numbers</label>
+      {{input type="number" value=book.pageNumbers id="page-numbers" min="5"}}
+    </div>
+    <div class="form-control">
+      <label for="edition">Edition</label>
+      {{input type="text" value=book.edition id="edition"}}
+    </div>
+    <div class="form-control">
+      <label for="synopsis">Synopsis</label>
+      {{textarea value=book.synopsis}}
+    </div>
+    <div class="">
+      <label for="categories">Categories</label>
+      <select class="" id="categories" multiple> {{!-- onchange={{action 'selectCategories'}} --}}
+        <option value="">Select categories...</option>
+      </select>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Dimensions</legend>
+    <label for="width">Width</label>
+    {{input type="number" value=book.width min="1"}}
+    <label for="height">Height</label>
+    {{input type="number" value=book.height min="1"}}
+    <label for="depth">Depth</label>
+    {{input type="number" value=book.depth min="1"}}
+    <label for="weight">Weight</label>
+    {{input type="number" value=book.weight min="1"}}
+  </fieldset>
+  <fieldset>
+    <legend>ID</legend>
+    <label for="isbn">ISBN</label>
+    {{input type="text" value=book.isbn}}
+    <label for="barcode">Barcode</label>
+    {{input type="text" value=book.barcode}}
+  </fieldset>
+  <fieldset>
+    <legend>Markup</legend>
+    <div class="form-control">
+      <label for="price-group">Price group</label>
+      <select class="" id="priceGroups">
+        <option value="">select...</option>
+      </select>
+    </div>
+  </fieldset>
+  <button type="button" {{action 'saveBtnClick' book}}>{{btnLabel}}</button>
+</form>
