@@ -1,7 +1,18 @@
 <h2 class="title">Update Book</h2>
 {{book-form book=model.book bookCollections=collections btnLabel='Save changes' action='saveBook'}}
-<div class="errors">
-  {{#each book.errors as |error|}}
-    <li>{{error.source}} - {{error.message}}</li>
-  {{/each}}
-</div>
+{{#if book.errors}}
+  <div class="section">
+    {{#bulma-message isDanger=true}}
+      <div class="message-header">
+        <header>Errors</header>
+      </div>
+      <div class="message-body">
+        <ul>
+          {{#each book.errors as |error|}}
+            <li>{{error.source}} - {{error.message}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/bulma-message}}
+  </div>
+{{/if}}
