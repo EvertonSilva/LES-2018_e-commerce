@@ -1,78 +1,108 @@
-<form class="" action="#">
-  <fieldset>
-    <legend>Basic</legend>
-    <div class="form-control">
-      <label for="title">Title</label>
-      {{input type="text" value=book.title id="title"}}
+{{!-- onchange={{action 'selectEntity'}} --}}
+{{!-- onchange={{action 'selectCategories'}} --}}
+<form>
+  <div class="field">
+    <label for="book-title" class="label">Title</label>
+    {{#bulma-control}}
+      {{bulma-input placeholder="Book title" value=book.title id="book-title"}}
+    {{/bulma-control}}
+  </div>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <label for="book-author" class="label">Author</label>
+        {{#bulma-control}}
+          {{#bulma-select}}
+            <select id="book-author">
+              <option value="">select...</option>
+              {{#each bookCollections.authors as |author|}}
+                <option value="{{author.id}}">{{author.name}}</option>
+              {{/each}}
+            </select>
+          {{/bulma-select}}
+        {{/bulma-control}}
+      </div>
+      <div class="field">
+        <label for="book-publisher" class="label">Publishers</label>
+        {{#bulma-control}}
+          {{#bulma-select}}
+            <select id="book-publisher">
+              <option value="">select...</option>
+              {{#each bookCollections.publishers as |publisher|}}
+                <option value="{{publisher.id}}">{{publisher.name}}</option>
+              {{/each}}
+            </select>
+          {{/bulma-select}}
+        {{/bulma-control}}
+      </div>
+      <div class="field">
+        <label for="book-pages" class="label">Page numbers</label>
+        {{#bulma-control}}
+          {{bulma-input placeholder="Page numbers" value=book.pageNumbers id="book-pages"}}
+        {{/bulma-control}}
+      </div>
+      <div class="field">
+        <label for="book-edition" class="label">Edition</label>
+        {{#bulma-control}}
+          {{bulma-input placeholder="Book edition" value=book.edition id="book-edition"}}
+        {{/bulma-control}}
+      </div>
     </div>
-    <div class="form-control">
-      <label for="authors">Author</label>
-      <select class="" id="authors"> {{!-- onchange={{action 'selectEntity'}} --}}
-        <option value="">select...</option>
-        {{#each bookCollections.authors as |author|}}
-          <option value="{{author.id}}">{{author.name}}</option>
-        {{/each}}
-      </select>
+  </div>
+  <div class="field">
+    <label for="book-synopsis" class="label">Synopsis</label>
+    {{#bulma-control}}
+      {{textarea value=book.synopsis class="textarea"}}
+    {{/bulma-control}}
+  </div>
+  <div class="field">
+    <label for="book-width" class="label">Width</label>
+    {{#bulma-control}}
+      {{bulma-input value=book.width id="book-width"}}
+    {{/bulma-control}}
+  </div>
+  <div class="field">
+    <label for="book-height" class="label">Height</label>
+    {{#bulma-control}}
+      {{bulma-input value=book.height id="book-height"}}
+    {{/bulma-control}}
+  </div>
+  <div class="field">
+    <label for="book-depth" class="label">Depth</label>
+    {{#bulma-control}}
+      {{bulma-input value=book.depth id="book-depth"}}
+    {{/bulma-control}}
+  </div>
+  <div class="field">
+    <label for="book-weight" class="label">Weight</label>
+    {{#bulma-control}}
+      {{bulma-input value=book.weight id="book-weight"}}
+    {{/bulma-control}}
+  </div>
+  <div class="field">
+    <label for="book-isbn" class="label">ISBN</label>
+    {{#bulma-control}}
+      {{bulma-input value=book.isbn id="book-isbn"}}
+    {{/bulma-control}}
+  </div>
+  <div class="field">
+    <label for="book-barcode" class="label">Barcode</label>
+    {{#bulma-control}}
+      {{bulma-input value=book.barcode id="book-barcode"}}
+    {{/bulma-control}}
+  </div>
+  <div class="field">
+    <label for="book-categories" class="label">Categories</label>
+    <div class="control">
+      <div class="select is-multiple">
+        <select id="book-categories" multiple>
+          {{#each bookCollections.categories as |category|}}
+            <option value="{{category.id}}">{{category.name}}</option>
+          {{/each}}
+        </select>
+      </div>
     </div>
-    <div class="form-control">
-      <label for="publishers">Publisher</label>
-      <select class="" id="publishers">
-        <option value="">select...</option>
-        {{#each bookCollections.publishers as |publisher|}}
-          <option value="{{publisher.id}}">{{publisher.name}}</option>
-        {{/each}}
-      </select>
-    </div>
-    <div class="form-control">
-      <label for="page-numbers">Page numbers</label>
-      {{input type="number" value=book.pageNumbers id="page-numbers" min="5"}}
-    </div>
-    <div class="form-control">
-      <label for="edition">Edition</label>
-      {{input type="text" value=book.edition id="edition"}}
-    </div>
-    <div class="form-control">
-      <label for="synopsis">Synopsis</label>
-      {{textarea value=book.synopsis}}
-    </div>
-    <div class="form-control">
-      <label for="categories">Categories</label>
-      <select class="" id="categories" multiple> {{!-- onchange={{action 'selectCategories'}} --}}
-        {{#each bookCollections.categories as |category|}}
-          <option value="{{category.id}}">{{category.name}}</option>
-        {{/each}}
-      </select>
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend>Dimensions</legend>
-    <label for="width">Width</label>
-    {{input type="number" value=book.width min="1"}}
-    <label for="height">Height</label>
-    {{input type="number" value=book.height min="1"}}
-    <label for="depth">Depth</label>
-    {{input type="number" value=book.depth min="1"}}
-    <label for="weight">Weight</label>
-    {{input type="number" value=book.weight min="1"}}
-  </fieldset>
-  <fieldset>
-    <legend>ID</legend>
-    <label for="isbn">ISBN</label>
-    {{input type="text" value=book.isbn}}
-    <label for="barcode">Barcode</label>
-    {{input type="text" value=book.barcode}}
-  </fieldset>
-  <fieldset>
-    <legend>Markup</legend>
-    <div class="form-control">
-      <label for="price-group">Price group</label>
-      <select class="" id="priceGroups">
-        <option value="">select...</option>
-        {{#each bookCollections.priceGroups as |pg|}}
-          <option value="{{pg.id}}">{{pg.description}} - {{pg.markup}}%</option>
-        {{/each}}
-      </select>
-    </div>
-  </fieldset>
-  <button type="button" {{action 'saveBtnClick' book}}>{{btnLabel}}</button>
+  </div>
+  <button type="button" class="button is-primary"
+          {{action 'saveBtnClick' book}}>{{btnLabel}}</button>
 </form>
