@@ -1,4 +1,4 @@
-<div class="outer-container">
+{{!-- <div class="outer-container">
   <div class="sidebar">
     <h1>Books</h1>
     <ul>
@@ -9,4 +9,27 @@
   <div class="main-content">
     {{outlet}}
   </div>
-</div>
+</div> --}}
+{{#bulma-columns}}
+  {{#bulma-column is2=true}}
+    <div class="section">
+      <div class="box">
+        <h3 class="subtitle">Actions</h3>
+        {{#bulma-menu}}
+          {{#bulma-menu-list label="Books"}}
+            <li>{{#link-to 'admin.books.index'}}List all{{/link-to}}</li>
+            <li>{{#link-to 'admin.books.new'}}Add new{{/link-to}}</li>
+          {{/bulma-menu-list}}
+          {{#bulma-menu-list label="Orders"}}
+            <li><a href="#">List all</a></li>
+          {{/bulma-menu-list}}
+        {{/bulma-menu}}
+      </div>
+    </div>
+  {{/bulma-column}}
+  {{#bulma-column}}
+    <div class="section">
+      {{outlet}}
+    </div>
+  {{/bulma-column}}
+{{/bulma-columns}}
