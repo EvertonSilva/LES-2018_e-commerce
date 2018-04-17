@@ -1,0 +1,14 @@
+<div class="select {{if isMultiple 'is-multiple'}}" style="width: 100%">
+  <select style="width: inherit" multiple="{{if isMultiple  'multiple' ''}}">
+    {{#unless isMultiple}}
+      <option value="">select...</option>
+    {{/unless}}
+    {{#each collection as |item|}}
+      {{#if isPriceGroup }}
+        <option value="{{item.id}}">{{item.description}} - {{item.markup}}%</option>
+      {{else}}
+        <option value="{{item.id}}">{{item.name}}</option>
+      {{/if}}
+    {{/each}}
+  </select>
+</div>

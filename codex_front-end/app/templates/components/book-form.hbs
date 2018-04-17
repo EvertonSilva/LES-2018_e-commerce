@@ -12,27 +12,13 @@
       <div class="field">
         <label for="book-author" class="label">Author</label>
         {{#bulma-control}}
-          {{#bulma-select}}
-            <select id="book-author">
-              <option value="">select...</option>
-              {{#each bookCollections.authors as |author|}}
-                <option value="{{author.id}}">{{author.name}}</option>
-              {{/each}}
-            </select>
-          {{/bulma-select}}
+          {{book-select-collection collection=bookCollections.authors}}
         {{/bulma-control}}
       </div>
       <div class="field">
         <label for="book-publisher" class="label">Publishers</label>
         {{#bulma-control}}
-          {{#bulma-select}}
-            <select id="book-publisher">
-              <option value="">select...</option>
-              {{#each bookCollections.publishers as |publisher|}}
-                <option value="{{publisher.id}}">{{publisher.name}}</option>
-              {{/each}}
-            </select>
-          {{/bulma-select}}
+          {{book-select-collection collection=bookCollections.publishers}}
         {{/bulma-control}}
       </div>
       <div class="field">
@@ -55,53 +41,65 @@
       {{textarea value=book.synopsis class="textarea"}}
     {{/bulma-control}}
   </div>
-  <div class="field">
-    <label for="book-width" class="label">Width</label>
-    {{#bulma-control}}
-      {{bulma-input value=book.width id="book-width"}}
-    {{/bulma-control}}
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <label for="book-height" class="label">Width</label>
+        {{#bulma-control class="has-icons-right"}}
+          {{bulma-input value=book.width id="book-width" placeholder="15"}}
+          <span class="icon is-medium is-right">cm</span>
+        {{/bulma-control}}
+      </div>
+      <div class="field">
+        <label for="book-height" class="label">Height</label>
+        {{#bulma-control class="has-icons-right"}}
+          {{bulma-input value=book.height id="book-height" placeholder="17"}}
+          <span class="icon is-medium is-right">cm</span>
+        {{/bulma-control}}
+      </div>
+      <div class="field">
+        <label for="book-depth" class="label">Depth</label>
+        {{#bulma-control class="has-icons-right"}}
+          {{bulma-input value=book.depth id="book-depth" placeholder="5"}}
+          <span class="icon is-medium is-right">cm</span>
+        {{/bulma-control}}
+      </div>
+      <div class="field">
+        <label for="book-weight" class="label">Weight</label>
+        {{#bulma-control class="has-icons-right"}}
+          {{bulma-input value=book.weight id="book-weight" placeholder="150"}}
+          <span class="icon is-medium is-right">gr</span>
+        {{/bulma-control}}
+      </div>
+    </div>
   </div>
   <div class="field">
-    <label for="book-height" class="label">Height</label>
-    {{#bulma-control}}
-      {{bulma-input value=book.height id="book-height"}}
-    {{/bulma-control}}
-  </div>
-  <div class="field">
-    <label for="book-depth" class="label">Depth</label>
-    {{#bulma-control}}
-      {{bulma-input value=book.depth id="book-depth"}}
-    {{/bulma-control}}
-  </div>
-  <div class="field">
-    <label for="book-weight" class="label">Weight</label>
-    {{#bulma-control}}
-      {{bulma-input value=book.weight id="book-weight"}}
-    {{/bulma-control}}
-  </div>
-  <div class="field">
-    <label for="book-isbn" class="label">ISBN</label>
-    {{#bulma-control}}
-      {{bulma-input value=book.isbn id="book-isbn"}}
-    {{/bulma-control}}
-  </div>
-  <div class="field">
-    <label for="book-barcode" class="label">Barcode</label>
-    {{#bulma-control}}
-      {{bulma-input value=book.barcode id="book-barcode"}}
-    {{/bulma-control}}
+    <div class="field-body">
+      <div class="field">
+        <label for="book-price-group" class="label">Price group</label>
+        {{#bulma-control}}
+          {{book-select-collection collection=bookCollections.priceGroups isPriceGroup=true}}
+        {{/bulma-control}}
+      </div>
+      <div class="field">
+        <label for="book-isbn" class="label">ISBN</label>
+        {{#bulma-control}}
+          {{bulma-input value=book.isbn id="book-isbn"}}
+        {{/bulma-control}}
+      </div>
+      <div class="field">
+        <label for="book-barcode" class="label">Barcode</label>
+        {{#bulma-control}}
+          {{bulma-input value=book.barcode id="book-barcode"}}
+        {{/bulma-control}}
+      </div>
+    </div>
   </div>
   <div class="field">
     <label for="book-categories" class="label">Categories</label>
-    <div class="control">
-      <div class="select is-multiple">
-        <select id="book-categories" multiple>
-          {{#each bookCollections.categories as |category|}}
-            <option value="{{category.id}}">{{category.name}}</option>
-          {{/each}}
-        </select>
-      </div>
-    </div>
+    {{#bulma-control}}
+      {{book-select-collection collection=bookCollections.categories isMultiple=true}}
+    {{/bulma-control}}
   </div>
   <button type="button" class="button is-primary"
           {{action 'saveBtnClick' book}}>{{btnLabel}}</button>
