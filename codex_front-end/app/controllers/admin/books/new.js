@@ -15,7 +15,7 @@ export default Controller.extend({
   }),
 
   actions: {
-    selectEntity: function(event) {
+    selectEntity(event) {
       const model = this.get('model');
       const selectedId = event.target.id;
       const collection = model[selectedId];
@@ -27,7 +27,7 @@ export default Controller.extend({
         book.set(collection.modelName, entity);
       }
     },
-    selectCategories: function (event) {
+    selectCategories(event) {
       const selectedCats = $(event.target).val();
       this.set('categoryList', selectedCats || []);
     },
