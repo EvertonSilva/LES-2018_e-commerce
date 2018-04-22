@@ -1,0 +1,36 @@
+{{#bulma-columns}}
+  {{#bulma-column is3=true}}
+    <div class="section" style="background-color: #eee">
+      <section class="customer-avatar">
+        <figure class="image is-128x128">
+          <img src="/imgs/customers/customer-avatar.png" alt="">
+        </figure>
+      </section>
+      <h3 class="subtitle has-text-centered">Darth Vader</h3>
+      <hr>
+      <section class="box">
+        {{#bulma-menu}}
+          {{#bulma-menu-list label="Your Orders"}}
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Cupons</a></li>
+          {{/bulma-menu-list}}
+          {{#bulma-menu-list label="Personal info"}}
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Addresses</a></li>
+          {{/bulma-menu-list}}
+          {{#bulma-menu-list label="Payment info"}}
+            <li><a href="#">Credit cards</a></li>
+          {{/bulma-menu-list}}
+          {{#bulma-menu-list label="Security info"}}
+            <li><a href="#">Change credentials</a></li>
+          {{/bulma-menu-list}}
+        {{/bulma-menu}}
+      </section>
+    </div>
+  {{/bulma-column}}
+    {{#bulma-column}}
+      <section class="section">
+        <h2 class="title">Profile</h2>
+      </section>
+    {{/bulma-column}}
+{{/bulma-columns}}

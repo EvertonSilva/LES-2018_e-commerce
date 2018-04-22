@@ -16,6 +16,10 @@ Router.map(function() {
   this.route('books');
   this.route('cart');
   this.route('checkout');
+
+  this.route('customers', function() {
+    this.route('profile');
+  });
 });
 
 export default Router;
