@@ -1,10 +1,8 @@
-{{!-- onchange={{action 'selectEntity'}} --}}
-{{!-- onchange={{action 'selectCategories'}} --}}
 <form>
   <div class="field">
     <label for="book-title" class="label">Title</label>
     {{#bulma-control}}
-      {{bulma-input placeholder="Book title" value=book.title id="book-title"}}
+      {{input type="text" placeholder="Book title" value=book.title id="book-title" class="input"}}
     {{/bulma-control}}
   </div>
   <div class="field is-horizontal">
@@ -19,19 +17,26 @@
       <div class="field">
         <label for="book-publisher" class="label">Publishers</label>
         {{#bulma-control}}
-          {{book-select-collection collection=bookCollections.publishers}}
+          {{book-select-collection collection=bookCollections.publishers action=(action "setBook")}}
         {{/bulma-control}}
       </div>
       <div class="field">
         <label for="book-pages" class="label">Page numbers</label>
         {{#bulma-control}}
-          {{bulma-input placeholder="Page numbers" value=book.pageNumbers id="book-pages"}}
+          {{input placeholder="Page numbers" value=book.pageNumbers id="book-pages" class="input"}}
         {{/bulma-control}}
       </div>
       <div class="field">
         <label for="book-edition" class="label">Edition</label>
         {{#bulma-control}}
-          {{bulma-input placeholder="Book edition" value=book.edition id="book-edition"}}
+          {{input placeholder="Book edition" value=book.edition id="book-edition" class="input"}}
+        {{/bulma-control}}
+      </div>
+      <div class="field">
+        <label for="book-publishYear" class="label">Publish Year</label>
+        {{#bulma-control}}
+          {{input placeholder="Publish year" value=book.publishYear id="book-publishYear"
+                  class="input"}}
         {{/bulma-control}}
       </div>
     </div>
@@ -47,28 +52,28 @@
       <div class="field">
         <label for="book-height" class="label">Width</label>
         {{#bulma-control class="has-icons-right"}}
-          {{bulma-input value=book.width id="book-width" placeholder="15"}}
+          {{input value=book.width id="book-width" placeholder="15" class="input"}}
           <span class="icon is-medium is-right">cm</span>
         {{/bulma-control}}
       </div>
       <div class="field">
         <label for="book-height" class="label">Height</label>
         {{#bulma-control class="has-icons-right"}}
-          {{bulma-input value=book.height id="book-height" placeholder="17"}}
+          {{input value=book.height id="book-height" placeholder="17" class="input"}}
           <span class="icon is-medium is-right">cm</span>
         {{/bulma-control}}
       </div>
       <div class="field">
         <label for="book-depth" class="label">Depth</label>
         {{#bulma-control class="has-icons-right"}}
-          {{bulma-input value=book.depth id="book-depth" placeholder="5"}}
+          {{input value=book.depth id="book-depth" placeholder="5" class="input"}}
           <span class="icon is-medium is-right">cm</span>
         {{/bulma-control}}
       </div>
       <div class="field">
         <label for="book-weight" class="label">Weight</label>
         {{#bulma-control class="has-icons-right"}}
-          {{bulma-input value=book.weight id="book-weight" placeholder="150"}}
+          {{input value=book.weight id="book-weight" placeholder="150" class="input"}}
           <span class="icon is-medium is-right">gr</span>
         {{/bulma-control}}
       </div>
@@ -79,19 +84,20 @@
       <div class="field">
         <label for="book-price-group" class="label">Price group</label>
         {{#bulma-control}}
-          {{book-select-collection collection=bookCollections.priceGroups isPriceGroup=true}}
+          {{book-select-collection collection=bookCollections.priceGroups
+                                    isPriceGroup=true action=(action "setBook")}}
         {{/bulma-control}}
       </div>
       <div class="field">
         <label for="book-isbn" class="label">ISBN</label>
         {{#bulma-control}}
-          {{bulma-input value=book.isbn id="book-isbn"}}
+          {{input value=book.isbn id="book-isbn" class="input"}}
         {{/bulma-control}}
       </div>
       <div class="field">
         <label for="book-barcode" class="label">Barcode</label>
         {{#bulma-control}}
-          {{bulma-input value=book.barcode id="book-barcode"}}
+          {{input value=book.barcode id="book-barcode" class="input"}}
         {{/bulma-control}}
       </div>
     </div>

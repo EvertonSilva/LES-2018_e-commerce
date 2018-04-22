@@ -25,8 +25,7 @@ export default Route.extend({
 
   actions: {
     saveBook(newBook) {
-      alert("saving... " + newBook);
-      //newBook.save().then(() => this.transitionTo('admin.books'));
+      newBook.save().then(() => this.transitionTo('admin.books'));
     },
     willTransition() {
       this.controller.get('model.book').rollbackAttributes();

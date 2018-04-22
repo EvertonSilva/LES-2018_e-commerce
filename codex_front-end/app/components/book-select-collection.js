@@ -22,7 +22,6 @@ export default Component.extend({
         this.get('action')(this.get('categories'));
       } else {
         this.set('entity', this.collection.find(item => item.id === selectedVal));
-        // const modelName = this.isPriceGroup ? 'priceGroup':this.entity.constructor.modelName;
         this.get('action')(this.get('entity'));
       }
     },
