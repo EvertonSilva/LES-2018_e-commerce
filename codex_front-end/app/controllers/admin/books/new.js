@@ -31,5 +31,16 @@ export default Controller.extend({
       const selectedCats = $(event.target).val();
       this.set('categoryList', selectedCats || []);
     },
+    save(book) {
+      this.send('saveBook', book);
+    },
+    setBookAttr(value) {
+      if(Array.isArray(value)) {
+        // TODO
+      } else {
+        // TODO
+      }
+      // this.get('model').book.set(attr, value);
+    },
   }
 });

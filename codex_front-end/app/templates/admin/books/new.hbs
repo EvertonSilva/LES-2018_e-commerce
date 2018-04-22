@@ -1,7 +1,7 @@
 <h2 class="title">New Book</h2>
 {{book-form book=model.book bookCollections=collections
-            btnLabel='Create book' action='saveBook'
-            onSelectChange=(action 'testSendAction')}}
+            btnLabel='Create book' saveAction=(action 'save')
+            setBookAction=(action 'setBookAttr')}}
 {{#if book.errors}}
   <div class="section">
     {{#bulma-message isDanger=true}}

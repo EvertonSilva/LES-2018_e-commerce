@@ -12,7 +12,8 @@
       <div class="field">
         <label for="book-author" class="label">Author</label>
         {{#bulma-control}}
-          {{book-select-collection collection=bookCollections.authors}}
+          {{book-select-collection collection=bookCollections.authors
+                                    action=(action "setBook")}}
         {{/bulma-control}}
       </div>
       <div class="field">
@@ -98,7 +99,8 @@
   <div class="field">
     <label for="book-categories" class="label">Categories</label>
     {{#bulma-control}}
-      {{book-select-collection collection=bookCollections.categories isMultiple=true}}
+      {{book-select-collection collection=bookCollections.categories
+                                isMultiple=true action=(action "setBook")}}
     {{/bulma-control}}
   </div>
   <button type="button" class="button is-primary"
