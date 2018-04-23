@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423000101) do
+ActiveRecord::Schema.define(version: 20180423002035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20180423000101) do
   end
 
   create_table "phones", force: :cascade do |t|
-    t.string "type"
+    t.integer "phone_number_type"
     t.string "areaCode"
     t.string "number"
     t.datetime "created_at", null: false
