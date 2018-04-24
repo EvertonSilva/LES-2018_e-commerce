@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
   resources :books
   resources :authors
+  resources :customers do
+    resources :credit_cards, shallow: true
+    resources :addresses, shallow: true
+  end
 end
