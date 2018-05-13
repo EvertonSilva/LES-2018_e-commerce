@@ -8,13 +8,13 @@
     </tr>
   </thead>
   <tbody>
-    {{#each shoppingCart.items as |book|}}
+    {{#each shoppingCart.items as |cartItem|}}
       <tr>
-        <td>{{book.title}}</td>
-        <td>1</td>
+        <td>{{cartItem.book.title}}</td>
+        <td>{{cartItem.amount}}</td>
         <td>$0.00</td>
         <td>
-          <button type="button" class="button is-danger" {{action 'removeFromCart' book}}>
+          <button type="button" class="button is-danger" {{action 'removeFromCart' cartItem}}>
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
         </td>

@@ -5,9 +5,8 @@ export default Component.extend({
   shoppingCart: service(),
 
   actions: {
-    removeFromCart(book) {
-      alert('this book will be removed from your cart');
-      this.get('shoppingCart').removeItem(book);
+    removeFromCart(item) {
+      this.get('shoppingCart').removeItem(item);
     }
   }
 });
