@@ -1,0 +1,18 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Amount</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each shoppingCart.items as |book|}}
+      <tr>
+        <td>{{book.title}}</td>
+        <td>1</td>
+        <td>$0.00</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
