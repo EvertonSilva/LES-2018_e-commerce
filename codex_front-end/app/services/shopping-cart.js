@@ -1,10 +1,9 @@
 import Service from '@ember/service';
-import EmberArray from '@ember/array/mutable';
 
 export default Service.extend({
   init() {
     this._super(...arguments);
-    this.set('items', new EmberArray());
+    this.set('items', new Array());
   },
 
   addItem(item) {
