@@ -4,6 +4,7 @@
       <th>Book</th>
       <th>Amount</th>
       <th>Price</th>
+      <th>Subtotal</th>
       <th>Remove Item</th>
     </tr>
   </thead>
@@ -12,7 +13,8 @@
       <tr>
         <td>{{cartItem.book.title}}</td>
         <td>{{cartItem.amount}}</td>
-        <td>$0.00</td>
+        <td>${{cartItem.price}}</td>
+        <td>${{cartItem.subtotal}}</td>
         <td>
           <button type="button" class="button is-danger" {{action 'removeFromCart' cartItem}}>
             <i class="fa fa-trash" aria-hidden="true"></i>
@@ -20,5 +22,9 @@
         </td>
       </tr>
     {{/each}}
+    <tr>
+      <th>Total:</th>
+      <td>{{shoppingCart.total}}</td>
+    </tr>
   </tbody>
 </table>
