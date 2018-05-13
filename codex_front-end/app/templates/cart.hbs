@@ -2,6 +2,6 @@
   {{#bulma-container}}
     <h2 class="title">Shopping cart</h2>
     {{display-cart}}
-    <button type="button" class="button is-primary">Checkout</button>
+    {{#link-to 'checkout' class="button is-primary"}}Checkout{{/link-to}}
   {{/bulma-container}}
 {{/bulma-section}}

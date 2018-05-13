@@ -12,7 +12,7 @@
     {{#each shoppingCart.items as |cartItem|}}
       <tr>
         <td>{{cartItem.book.title}}</td>
-        <td>{{input type='number' value=cartItem.amount min=1}}</td>
+        <td>{{input type='number' value=cartItem.amount min="1" class="input"}}</td>
         <td>${{cartItem.price}}</td>
         <td>${{cartItem.subtotal}}</td>
         <td>
