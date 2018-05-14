@@ -21,5 +21,17 @@ services:
     networks:
       - backend
 
+  php_api:
+    image: everton/codexlumen:dev
+    container_name: "codex_phpapi"
+    build: ./codex_lumen
+    command: php -S 0.0.0.0:8282 -t public
+    volumes:
+      - ./codex_lumen:/codex_lumen
+    ports:
+      - "8282:8282"
+    networks:
+      - backend
+
 networks:
   backend:
