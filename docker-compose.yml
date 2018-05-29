@@ -7,6 +7,19 @@ services:
     networks:
       - backend
 
+  salesdb:
+    image: mysql:5.7
+    container_name: "sales_db"
+    ports:
+      - "3306:3306"
+    environment:
+       MYSQL_ROOT_PASSWORD: "%vC3ha|m4$$"
+       MYSQL_DATABASE: codex_salesdb
+       MYSQL_USER: codex_sales
+       MYSQL_PASSWORD: "sales123"
+    networks:
+      - backend
+
   rails_app:
     image: everton/codexrails:dev
     container_name: "codex_rails"
