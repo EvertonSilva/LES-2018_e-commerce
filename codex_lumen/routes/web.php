@@ -12,5 +12,11 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+  return $router->app->version();
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+  $router->get('orders', ['uses' => 'OrdersController@showAllOrders']);
+  $router->get('orders/{id}', ['uses' => 'OrdersController@showOneOrder']);
+  $router->post('orders', ['uses' => 'OrdersController@create']);
 });
