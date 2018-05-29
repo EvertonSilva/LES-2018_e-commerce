@@ -15,7 +15,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->double('total', 8, 2);
+            $table->datetime('purchase_date');
+            $table->datetime('shipping_date');
+            $table->enum('status', ['PROCESSING', 'SHIPPING', 'SHIPPED', 'EXCHANGING', 'CLOSED']);
             $table->timestamps();
         });
     }
