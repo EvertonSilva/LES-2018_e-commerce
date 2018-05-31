@@ -11,23 +11,27 @@ class OrdersController extends Controller
 
     public function showAllOrders()
     {
-      return response()->json(Order::all());
+      return response()->json(Order::with('orderLines')->get());
     }
 
     public function showOneOrder($id)
     {
-      return response()->json(Order::find($id));
+      $order = Order::find($id);
+      $order->load('orderLines');
+      return response()->json($order);
     }
 
     public function create(Request $request)
     {
-      $order = new Order;
-      $order->user_id = $request->get('user_id');
-      $order->total = $request->get('total');
-      $order->purchase_date = Carbon::createFromFormat('Y-m-d', $request->get('purchase_date'));
-      $order->status = $request->get('status');
-      $order->save();
+      $order = Order::create($request->all());
       return response()->json($order, 201);
+    }
+
+    public function update(Request $request, $id)
+    {
+      $order = Order::findOrFail($id);
+      $order->update($request->all());
+      return response()->json($order, 200);
     }
 }
 

@@ -19,4 +19,5 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   $router->get('orders', ['uses' => 'OrdersController@showAllOrders']);
   $router->get('orders/{id}', ['uses' => 'OrdersController@showOneOrder']);
   $router->post('orders', ['uses' => 'OrdersController@create']);
+  $router->put('orders/{id}', 'OrdersController@update');
 });
