@@ -28,6 +28,7 @@ return array(
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
     'Carbon\\Translator' => $vendorDir . '/nesbot/carbon/src/Carbon/Translator.php',
+    'CreateCuponsTable' => $baseDir . '/database/migrations/2018_06_01_155950_create_cupons_table.php',
     'CreateOrdersTable' => $baseDir . '/database/migrations/2018_05_29_183614_create_orders_table.php',
     'CreatePaymentsTable' => $baseDir . '/database/migrations/2018_06_01_030153_create_payments_table.php',
     'CreateTableOrderLines' => $baseDir . '/database/migrations/2018_05_29_214547_create_table_order_lines.php',

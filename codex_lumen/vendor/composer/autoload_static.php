@@ -334,6 +334,7 @@ class ComposerStaticInit8ff03af9f03b2a860184c10bceed637b
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'CreateCuponsTable' => __DIR__ . '/../..' . '/database/migrations/2018_06_01_155950_create_cupons_table.php',
         'CreateOrdersTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_29_183614_create_orders_table.php',
         'CreatePaymentsTable' => __DIR__ . '/../..' . '/database/migrations/2018_06_01_030153_create_payments_table.php',
         'CreateTableOrderLines' => __DIR__ . '/../..' . '/database/migrations/2018_05_29_214547_create_table_order_lines.php',
