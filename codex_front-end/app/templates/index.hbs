@@ -1,4 +1,4 @@
-{{#bulma-hero isPrimary=true isLarge=true}}
+{{#bulma-hero isPrimary=true isLarge=true class="has-bg-img"}}
   {{#bulma-hero-content}}
     <h1 class="title">Hero Title</h1>
     <h2 class="subtitle">Lorem ipsum dolor sit amet</h2>
@@ -8,30 +8,10 @@
 {{#bulma-section}}
   {{#bulma-container}}
     <h2 class="title">Featured books</h2>
-    <div class="columns">
-      {{#each model as |book|}}
-        <div class="column">
-          <div class="card">
-            <header class="card-header">
-              <h3 class="card-header-title">{{book.title}}</h3>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <p>
-                  Author: {{book.author.name}}
-                </p>
-                <ul>
-                  {{#each book.categories as |category|}}
-                    <li>{{category.name}}</li>
-                  {{/each}}
-                </ul>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">R$ 0,00</p>
-              <a href="#" class="card-footer-item">Add to cart</a>
-            </footer>
-          </div>
+    <div class="columns is-multiline">
+      {{#each model as |bookUnit|}}
+        <div class="column is-one-quarter">
+          {{book-listing book=bookUnit}}
         </div>
       {{/each}}
     </div>

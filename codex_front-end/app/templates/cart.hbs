@@ -1,23 +1,7 @@
-<div class="main-content">
-  <div class="container">
-    <h2 class="page-title">Cart</h2>
-    <table class="cart-list">
-      <tr>
-        <th>Item ID</th>
-        <th>Title</th>
-        <th>Quantity</th>
-        <th>Remove</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Memories from the underground</td>
-        <td><input type="number" value="1" min="1"></td>
-        <td><button>X</button></td>
-      </tr>
-    </table>
-    <div class="checkout-action">
-      <a href="/checkout" class="btn">Checkout</a>
-    </div>
-  </div>
-  {{outlet}}
-</div>
+{{#bulma-section}}
+  {{#bulma-container}}
+    <h2 class="title">Shopping cart</h2>
+    {{display-cart}}
+    {{#link-to 'checkout' class="button is-primary"}}Checkout{{/link-to}}
+  {{/bulma-container}}
+{{/bulma-section}}

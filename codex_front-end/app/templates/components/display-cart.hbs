@@ -1,0 +1,30 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th>Subtotal</th>
+      <th>Remove Item</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each shoppingCart.items as |cartItem|}}
+      <tr>
+        <td>{{cartItem.book.title}}</td>
+        <td>{{input type='number' value=cartItem.amount min="1" class="input"}}</td>
+        <td>${{cartItem.price}}</td>
+        <td>${{cartItem.subtotal}}</td>
+        <td>
+          <button type="button" class="button is-danger" {{action 'removeFromCart' cartItem}}>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+    {{/each}}
+    <tr>
+      <th>Total:</th>
+      <td>{{shoppingCart.total}}</td>
+    </tr>
+  </tbody>
+</table>

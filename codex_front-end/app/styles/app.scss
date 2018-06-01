@@ -1,1 +1,10 @@
 @import "bulma";
+
+.customer-avatar {
+  .image {
+    margin: 0 auto;
+  }
+}
+.has-bg-img {
+  background: url('/imgs/hero-bg.jpg') no-repeat center;
+}

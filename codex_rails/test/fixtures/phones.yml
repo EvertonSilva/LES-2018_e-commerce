@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  areaCode: MyString
+  number: MyString
+
+two:
+  type: 
+  areaCode: MyString
+  number: MyString

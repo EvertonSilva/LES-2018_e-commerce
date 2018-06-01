@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326053251) do
+ActiveRecord::Schema.define(version: 20180423021655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer "address_type"
+    t.integer "public_place_type"
+    t.string "number"
+    t.string "district"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "postal_code"
+    t.string "public_place"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "addresses_customers", id: false, force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.bigint "address_id", null: false
+    t.index ["customer_id", "address_id"], name: "index_addresses_customers_on_customer_id_and_address_id"
+  end
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -56,6 +77,40 @@ ActiveRecord::Schema.define(version: 20180326053251) do
   create_table "changes_categories", force: :cascade do |t|
     t.string "name"
     t.integer "change_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "card_number"
+    t.string "printed_name"
+    t.string "security_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "creditcard_company_id"
+    t.integer "customer_id"
+  end
+
+  create_table "creditcard_companies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "id_document"
+    t.date "dob"
+    t.integer "gender"
+    t.integer "ranking"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.integer "phone_number_type"
+    t.string "areaCode"
+    t.string "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

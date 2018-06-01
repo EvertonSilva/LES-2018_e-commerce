@@ -1,55 +1,70 @@
-<div class="main-content">
-  <div class="container">
-    <h2 class="page-title">Checkout</h2>
-    <div class="purchase-info-wrap">
-      <div class="purchase-info">
-        <h3>Delivery info</h3>
-        <select class="" name="">
-          <option>Address 1</option>
-          <option>Address 2</option>
-          <option>Address 3</option>
-        </select>
-        <button type="button">Add new</button>
+{{#bulma-section}}
+  {{#bulma-container}}
+    <h2 class="title">Checkout</h2>
+    {{#bulma-columns is-multiline=true}}
+      <div class="column is-5">
+        <h3 class="subtitle">Order summary</h3>
+        {{display-cart}}
+        <div class="field">
+          <div class="control has-icons-left">
+            <input type="text" class="input" placeholder="Promo code">
+            <span class="icon is-small is-left">
+              <i class="fa fa-gift" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
       </div>
-      <div class="purchase-info">
-        <h3>Payment info</h3>
-        <select class="" name="">
-          <option>Credit Card 1</option>
-          <option>Credit Card 2</option>
-          <option>Credit Card 3</option>
-        </select>
-        <button type="button">Add new</button>
+      <div class="column">
+        <section>
+          <h3 class="subtitle">Shipping info</h3>
+          <div class="select">
+            <select>
+              <option value="">select...</option>
+              <option value="1">Address 1</option>
+              <option value="2">Address 2</option>
+              <option value="3">Address 3</option>
+            </select>
+          </div>
+          <button type="button" class="button is-primary">New address</button>
+        </section>
+        <hr>
+        <section>
+          <h3 class="subtitle">Payment Info</h3>
+          <div class="box">
+            <h4>Credit cards</h4>
+            <label class="checkbox is-block">
+              <input type="checkbox" name="credit-card" value="1">
+              Card 1
+            </label>
+            <label class="checkbox is-block">
+              <input type="checkbox" name="credit-card" value="2">
+              Card 2
+            </label>
+            <label class="checkbox is-block">
+              <input type="checkbox" name="credit-card" value="3">
+              Card 3
+            </label>
+            <br>
+            <button type="button" class="button is-primary is-small">Add New</button>
+          </div>
+          <br>
+          <div class="box">
+            <h4>Exchange Vouchers</h4>
+            <label class="checkbox is-block">
+              <input type="checkbox" name="exchange-voucher" value="1">
+              Coupon 1 - $10,00
+            </label>
+            <label class="checkbox is-block">
+              <input type="checkbox" name="exchange-voucher" value="2">
+              Coupon 2 - $30,00
+            </label>
+          </div>
+        </section>
       </div>
-      <div class="purchase-info">
-        <h3>Cupons</h3>
-        <select class="" name="">
-          <option>Cupon 1</option>
-        </select>
-      </div>
-      <div class="purchase-info">
-        <h3>Promo code</h3>
-        <input type="text" name="" value="">
-      </div>
-      <div class="purchase-info">
-        <h3>ZIP code</h3>
-        <input type="text" name="" value="">
-      </div>
+    {{/bulma-columns}}
+    <hr>
+    <div class="has-text-right">
+      <button type="button" class="button">Purchase</button>
     </div>
-    <div class="purchase-resume">
-      <h2>Purchase details</h2>
-      <div class="purchase-item">
-        <h3>Memories from the underground</h3>
-        <p>Quantity: 1</p>
-        <p>Cost: $39,90</p>
-      </div>
-      <div class="purchase-total">
-        <p>Ship cost: $9,80</p>
-        <h3>Total: $49,70</h3>
-      </div>
-    </div>
-    <div class="purchase-finish">
-      <button type="button">Purchase</button>
-    </div>
-  </div>
-  {{outlet}}
-</div>
+  {{/bulma-container}}
+{{/bulma-section}}
