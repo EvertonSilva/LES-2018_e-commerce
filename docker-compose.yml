@@ -1,12 +1,12 @@
 version: "3"
 
 services:
+  # databases
   postgres:
     image: postgres:9.5
     container_name: "codex_postgres"
     networks:
       - backend
-
   salesdb:
     image: mysql:5.7
     container_name: "sales_db"
@@ -20,6 +20,7 @@ services:
     networks:
       - backend
 
+  # backend apps
   rails_app:
     image: everton/codexrails:dev
     container_name: "codex_rails"
@@ -31,9 +32,9 @@ services:
       - "3000:3000"
     depends_on:
       - postgres
+      - nginx
     networks:
       - backend
-
   php_api:
     image: everton/codexlumen:dev
     container_name: "codex_phpapi"
@@ -46,5 +47,15 @@ services:
     networks:
       - backend
 
+  # reverse proxy
+  nginx:
+    image: nginx:latest
+    container_name: "codex_revproxy"
+    volumes:
+      - ./codex_nginx/conf.d:/home/conf.d
+    ports:
+      - "8181:80"
+    networks:
+      - backend
 networks:
   backend:
