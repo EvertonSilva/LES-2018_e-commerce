@@ -15,7 +15,7 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('pay_method');
+            $table->enum('pay_method', ['CREDIT_CARD']);
             $table->double('amount', 8, 2);
             $table->unsignedInteger('order_id');
             $table->foreign('order_id')
