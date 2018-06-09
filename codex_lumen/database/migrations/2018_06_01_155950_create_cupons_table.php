@@ -13,10 +13,10 @@ class CreateCuponsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cupons', function (Blueprint $table) {
+        Schema::create('coupons', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code');
-            $table->enum('cupon_type', ['EXCHANGE', 'PROMO']);
+            $table->enum('coupon_type', ['EXCHANGE', 'PROMO']);
             $table->boolean('valid');
             $table->unsignedInteger('order_id');
             $table->foreign('order_id')
@@ -32,6 +32,6 @@ class CreateCuponsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cupons');
+        Schema::dropIfExists('coupons');
     }
 }
