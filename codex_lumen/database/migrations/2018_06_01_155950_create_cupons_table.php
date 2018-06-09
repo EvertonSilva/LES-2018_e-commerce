@@ -17,6 +17,7 @@ class CreateCuponsTable extends Migration
             $table->increments('id');
             $table->string('code');
             $table->enum('cupon_type', ['EXCHANGE', 'PROMO']);
+            $table->boolean('valid');
             $table->unsignedInteger('order_id');
             $table->foreign('order_id')
                   ->references('id')->on('orders');
