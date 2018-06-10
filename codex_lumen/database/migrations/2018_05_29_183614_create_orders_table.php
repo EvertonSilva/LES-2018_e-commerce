@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
           $table->string('public_place');
           $table->string('address_type');
           $table->string('number');
+          $table->string('district');
           $table->string('postal_code');
         });
         Schema::create('orders', function (Blueprint $table) {
