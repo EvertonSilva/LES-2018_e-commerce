@@ -9,7 +9,7 @@
     /**
     * Mass assignment
     */
-    protected $fillable = array('user_id', 'total', 'purchase_date', 'status');
+    protected $fillable = array('user_id', 'total', 'purchase_date');
 
     /**
     * Model Relationships
