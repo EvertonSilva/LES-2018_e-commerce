@@ -9,6 +9,6 @@ export default DS.Model.extend({
   orderLines: DS.hasMany('order-line'),
   payments: DS.hasMany('payment'),
   coupons: DS.hasMany('coupon'),
-  shippingCost: DS.hasOne('shipping-cost'),
-  shippingAddress: DS.hasOne('shipping-address')
+  shippingCost: DS.belongsTo('shipping-cost'),
+  shippingAddress: DS.belongsTo('shipping-address')
 });

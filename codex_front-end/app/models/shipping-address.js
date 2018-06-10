@@ -5,5 +5,6 @@ export default DS.Model.extend({
   publicPlace: DS.attr(),
   number: DS.attr(),
   district: DS.attr(),
-  postalCode: DS.attr()
+  postalCode: DS.attr(),
+  order: DS.belongsTo('order')
 });

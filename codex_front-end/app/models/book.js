@@ -16,6 +16,7 @@ export default DS.Model.extend({
   author: DS.belongsTo('author'),
   publisher: DS.belongsTo('publisher'),
   priceGroup: DS.belongsTo('price-group'),
+  orderLine: DS.belongsTo('order-liine'),
   statusChanges: DS.hasMany('status-change'),
   categories: DS.hasMany('category'),
 });
