@@ -32,7 +32,6 @@ services:
       - "3000:3000"
     depends_on:
       - postgres
-      - nginx
     networks:
       - backend
   php_api:
@@ -55,6 +54,9 @@ services:
       - ./codex_nginx/conf.d/:/home/root/conf.d/
     ports:
       - "8181:80"
+    depends_on:
+      - rails_app
+      - php_api
     networks:
       - backend
 networks:
