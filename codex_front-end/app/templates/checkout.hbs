@@ -4,10 +4,35 @@
     {{#bulma-columns is-multiline=true}}
       <div class="column is-5">
         <h3 class="subtitle">Order summary</h3>
-        {{display-cart}}
+        <div class="order-items">
+          <table class="table is-fullwidth">
+            <thead>
+              <tr>
+                <th>Book</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each model.orderLines as |orderLine| }}
+                <tr>
+                  <td>{{ orderLine.book.title }}</td>
+                  <td>{{ orderLine.amount }}</td>
+                  <td>{{ orderLine.sellPrice }}</td>
+                  <td>{{ orderLine.subtotal }}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+          <p><strong>Total</strong> {{ model.total }}</p>
+          <p><strong>Shipping Cost:</strong> {{ model.shippingCost.cost }}</p>
+          <hr>
+        </div>
         <div class="field">
           <div class="control has-icons-left">
-            <input type="text" class="input" placeholder="Promo code">
+            {{input type="text" value=promoCode
+                    class="input" placeholder="Promo code"}}
             <span class="icon is-small is-left">
               <i class="fa fa-gift" aria-hidden="true"></i>
             </span>
