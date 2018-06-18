@@ -52,7 +52,7 @@ services:
     image: nginx:latest
     container_name: "codex_revproxy"
     volumes:
-      - ./codex_nginx/conf.d:/home/conf.d
+      - ./codex_nginx/conf.d/:/home/root/conf.d/
     ports:
       - "8181:80"
     networks:
