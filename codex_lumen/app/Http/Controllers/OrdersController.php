@@ -11,14 +11,19 @@ class OrdersController extends Controller
 
     public function showAllOrders()
     {
-      return response()->json(Order::with('orderLines')->get());
+      return response()->json(['data' => Order::with('orderLines')->get()]);
     }
 
     public function showOneOrder($id)
     {
       $order = Order::find($id);
-      $order->load('orderLines');
-      return response()->json($order);
+      // $order->load('orderLines');
+      return response()->json(['data' => [
+          'id' => $id,
+          'type' => 'orders',
+          'attributes' => '[]'
+        ]
+      ]);
     }
 
     public function create(Request $request)

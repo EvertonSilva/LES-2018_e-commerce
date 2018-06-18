@@ -11,13 +11,15 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-  return $router->app->version();
-});
+  $router->get('/', function () use ($router) {
+    return $router->app->version();
+  });
 
-$router->group(['prefix' => 'api'], function () use ($router) {
-  $router->get('orders', ['uses' => 'OrdersController@showAllOrders']);
-  $router->get('orders/{id}', ['uses' => 'OrdersController@showOneOrder']);
-  $router->post('orders', ['uses' => 'OrdersController@create']);
-  $router->put('orders/{id}', 'OrdersController@update');
-});
+  $router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('orders', ['uses' => 'OrdersController@showAllOrders']);
+    $router->get('orders/{id}', ['uses' => 'OrdersController@showOneOrder']);
+    $router->post('orders', ['uses' => 'OrdersController@create']);
+    $router->put('orders/{id}', 'OrdersController@update');
+
+    $router->get('coupons', ['uses' => 'CouponsController@showAllCoupons']);
+  });
