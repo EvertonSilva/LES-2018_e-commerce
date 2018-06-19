@@ -11,6 +11,6 @@ export default DS.Model.extend({
     let amount = this.get('amount');
     let price = this.get('sellPrice');
 
-    return amount * price;
+    return (amount * price).toFixed(2);
   })
 });
