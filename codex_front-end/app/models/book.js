@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 
 export default DS.Model.extend({
   enabled: DS.attr('boolean'),
@@ -19,4 +20,9 @@ export default DS.Model.extend({
   orderLine: DS.belongsTo('order-liine'),
   statusChanges: DS.hasMany('status-change'),
   categories: DS.hasMany('category'),
+
+  price: computed('', function() {
+    const amount = Math.random() * (100 - 10) + 10;
+    return amount.toFixed(2);
+  })
 });

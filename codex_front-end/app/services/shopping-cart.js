@@ -21,7 +21,7 @@ export default Service.extend({
       let cartItem = new CartItem();
       cartItem.set('book', item);
       cartItem.set('amount', 1);
-      cartItem.set('price', this._getPrice());
+      cartItem.set('price', item.get('price'));
       this.get("items").pushObject(cartItem);
     } else {
       let currentAmount = _item.get('amount');
@@ -38,10 +38,5 @@ export default Service.extend({
 
   _findItem(lookUpItem) {
     return this.get('items').find((item) => item.get('book').get('id') === lookUpItem.get('id'));
-  },
-
-   _getPrice() {
-     const price = Math.random() * (100 - 10) + 10;
-     return price.toFixed(2);
-   }
+  }
 });

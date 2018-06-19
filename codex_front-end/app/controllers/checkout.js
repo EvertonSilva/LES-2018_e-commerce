@@ -64,10 +64,12 @@ export default Controller.extend({
       if(event.target.checked) {
         // add coupons to array of coupons
         this.get('exchangeCoupons').push(data);
+        this.set('orderDiscount', this.get('orderDiscount') + _discount);
       } else {
         // remove coupons from array of coupons
         const i = this.get('exchangeCoupons').indexOf(data);
         this.get('exchangeCoupons').splice(i, 1);
+        this.set('orderDiscount', this.get('orderDiscount') - _discount);
       }
     }
   }
