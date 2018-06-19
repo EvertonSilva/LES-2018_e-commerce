@@ -2,8 +2,6 @@ import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import $ from 'jquery';
 
-const creditCards = [];
-
 export default Controller.extend({
   promoCode: '',
   orderDiscount: 0.0,
@@ -58,7 +56,7 @@ export default Controller.extend({
     toggleExchangeCoupons(event) {
       const target = event.target;
       const val = target.value;
-      const _discount = $(target).data('discount');
+      const _discount = parseFloat($(target).data('discount'));
       const data = { id: val, discount: _discount };
 
       if(event.target.checked) {
@@ -71,6 +69,43 @@ export default Controller.extend({
         this.get('exchangeCoupons').splice(i, 1);
         this.set('orderDiscount', this.get('orderDiscount') - _discount);
       }
+    },
+    concludePurchase() {
+      let order = this.get('model');
+      let amountPerCard = this.get('orderTotal') / 3;
+      order.set('payments', []);
+      order.set('coupons', []);
+
+      // iterate card array and build credit cards
+      this.get('creditCards').forEach(() => {
+        let payment = this.get('store').createRecord('payment');
+        let card = this.get('store').createRecord('creditCard');
+        payment.set('amount', amountPerCard);
+        payment.set('card', card);
+        payment.set('order', order);
+      });
+
+      // iterate exchangeCoupons and create coupons
+      this.get('exchangeCoupons').forEach((data) => {
+        let coupon = this.get('store').createRecord('coupon');
+        coupon.set('coupon', '');
+        coupon.set('coupon_type', 'EXCHANGE');
+        coupon.set('discount', data.discount) ;
+        coupon.set('valid', true);
+        coupon.set('order', order);
+      });
+
+      // shipping Cost
+      let shpgCost = this.get('store').createRecord('shippingCost');
+      shpgCost.set('cost', this.get('shippingCost'));
+      order.set('shippingCost', shpgCost);
+
+      // shipping address
+      let shpgAddress = this.get('store').createRecord('shippingAddress');
+      shpgAddress.set('addressType', 'street');
+      order.set('shipgAddress', shpgAddress);
+
+      order.save().then(() => { alert('Yolo'); });
     }
   }
 });
