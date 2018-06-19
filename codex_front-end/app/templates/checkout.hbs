@@ -26,13 +26,14 @@
             </tbody>
           </table>
           <p><strong>Total:</strong> ${{ model.total }}</p>
-          <p><strong>Shipping Cost:</strong> ${{ model.shippingCost.cost }}</p>
+          <p><strong>Shipping Cost:</strong> ${{ shippingCost }}</p>
+          <p><strong>Discounts:</strong> ${{ orderDiscount }}</p>
           <hr>
         </div>
         <div class="field">
           <div class="control has-icons-left">
-            {{input type="text" value=promoCode
-                    class="input" placeholder="Promo code"}}
+            {{input type="text" value=promoCode class="input"
+                    focus-out="couponCheck" disabled=applyDiscount placeholder="Promo code"}}
             <span class="icon is-small is-left">
               <i class="fa fa-gift" aria-hidden="true"></i>
             </span>
@@ -58,15 +59,18 @@
           <div class="box">
             <h4>Credit cards</h4>
             <label class="checkbox is-block">
-              <input type="checkbox" name="credit-card" value="1">
+              <input type="checkbox" name="credit-card" value="1"
+                      onchange={{action 'toggleCreditCard'}}>
               Card 1
             </label>
             <label class="checkbox is-block">
-              <input type="checkbox" name="credit-card" value="2">
+              <input type="checkbox" name="credit-card" value="2"
+                      onchange={{action 'toggleCreditCard'}}>
               Card 2
             </label>
             <label class="checkbox is-block">
-              <input type="checkbox" name="credit-card" value="3">
+              <input type="checkbox" name="credit-card" value="3"
+                      onchange={{action 'toggleCreditCard'}}>
               Card 3
             </label>
             <br>
@@ -76,11 +80,15 @@
           <div class="box">
             <h4>Exchange Vouchers</h4>
             <label class="checkbox is-block">
-              <input type="checkbox" name="exchange-voucher" value="1">
+              <input type="checkbox" name="exchange-voucher" value="1"
+                      data-discount="10.00"
+                      onchange={{action 'toggleExchangeCoupons'}}>
               Coupon 1 - $10,00
             </label>
             <label class="checkbox is-block">
-              <input type="checkbox" name="exchange-voucher" value="2">
+              <input type="checkbox" name="exchange-voucher" value="2"
+                      data-discount="30.00"
+                      onchange={{action 'toggleExchangeCoupons'}}>
               Coupon 2 - $30,00
             </label>
           </div>
@@ -89,7 +97,8 @@
     {{/bulma-columns}}
     <hr>
     <div class="has-text-right">
-      <p style="margin-bottom: 10px"><strong>Purchase value:</strong> ${{ orderTotal }}</p>
+      <p style="margin-bottom: 10px"><strong>Purchase value:</strong>
+        ${{ orderTotal }}</p>
       <button type="button" class="button">Purchase</button>
     </div>
   {{/bulma-container}}
